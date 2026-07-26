@@ -304,7 +304,7 @@
     .platforms {
       grid-column: 1 / -1;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
     .platform-card {
@@ -335,6 +335,7 @@
       border: 1px solid rgba(255,255,255,.13);
       box-shadow: 0 0 0 38px rgba(255,255,255,.025);
     }
+    .spotify-card { background: linear-gradient(145deg, #1e5938, #10281b); }
     .youtube-card { background: linear-gradient(145deg, #431616, #1c1010); }
     .music-card { background: linear-gradient(145deg, #315441, #14251c); }
     .facebook-card { background: linear-gradient(145deg, #254a80, #111e34); }
@@ -346,6 +347,7 @@
       z-index: 1;
       color: #ff3b30;
     }
+    .spotify-card .platform-icon { color: #42d77d; }
     .music-card .platform-icon { color: #8fc1a4; }
     .facebook-card .platform-icon { color: #5c8fe1; }
     .platform-icon svg {
@@ -561,8 +563,69 @@
       letter-spacing: -.06em;
     }
     .contact-card p { margin: 14px 0 0; font-size: 1.08rem; max-width: 580px; }
-    .contact-actions { display: flex; flex-direction: column; gap: 12px; }
-    .email { word-break: break-word; }
+    .contact-copy { align-self: center; }
+    .contact-direct {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin-top: 25px;
+      font-weight: 760;
+    }
+    .contact-direct a { text-underline-offset: 4px; }
+
+    .booking-form {
+      padding: 24px;
+      border-radius: 25px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(23,25,22,.12);
+      box-shadow: 0 18px 45px rgba(23,25,22,.1);
+      display: grid;
+      gap: 14px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+    .booking-form label {
+      display: grid;
+      gap: 7px;
+      font-size: .79rem;
+      font-weight: 820;
+      letter-spacing: .04em;
+    }
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+      width: 100%;
+      border: 1px solid rgba(23,25,22,.18);
+      border-radius: 13px;
+      background: rgba(255,255,255,.88);
+      color: var(--ink);
+      padding: 12px 13px;
+      font: inherit;
+      font-size: .95rem;
+      outline: none;
+    }
+    .booking-form textarea { resize: vertical; min-height: 112px; }
+    .booking-form input:focus,
+    .booking-form select:focus,
+    .booking-form textarea:focus {
+      border-color: var(--forest);
+      box-shadow: 0 0 0 3px rgba(47,75,59,.13);
+    }
+    .form-submit {
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+      margin-top: 2px;
+    }
+    .form-note {
+      margin: 0 !important;
+      font-size: .78rem !important;
+      color: #565a52;
+      line-height: 1.42;
+    }
 
     footer { padding: 36px 0 50px; }
     .footer-inner {
@@ -597,7 +660,7 @@
       .project-card:nth-child(even) .project-image { order: 0; }
       .project-image { min-height: 450px; }
       .story-rail { grid-auto-columns: minmax(330px, 86vw); }
-      .contact-actions { align-items: flex-start; }
+      .form-row { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 600px) {
@@ -738,6 +801,22 @@
           </article>
 
           <div class="platforms">
+            <a class="platform-card platform-brand spotify-card" href="https://open.spotify.com/artist/6AYi6OT4Fbtsaiw4BuOyjr" target="_blank" rel="noopener noreferrer">
+              <div class="platform-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle cx="32" cy="32" r="28" fill="currentColor"/>
+                  <path d="M18 25c10-3 22-2 31 2M20 33c8-2 18-1 26 2M22 41c7-1 14 0 20 2"
+                        fill="none" stroke="white" stroke-width="4.4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="platform-copy">
+                <span class="platform-kicker">Released music</span>
+                <h4>Spotify</h4>
+                <p>Stream Cooper’s released catalog and follow the artist page</p>
+              </div>
+              <span class="platform-arrow">↗</span>
+            </a>
+
             <a class="platform-card platform-brand youtube-card" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
               <div class="platform-icon" aria-hidden="true">
                 <svg viewBox="0 0 64 64">
@@ -746,9 +825,9 @@
                 </svg>
               </div>
               <div class="platform-copy">
-                <span class="platform-kicker">Video channel</span>
+                <span class="platform-kicker">Videos & content</span>
                 <h4>YouTube</h4>
-                <p>Performances, videos, and music content</p>
+                <p>Performances, piano videos, and music-related content</p>
               </div>
               <span class="platform-arrow">↗</span>
             </a>
@@ -761,9 +840,9 @@
                 </svg>
               </div>
               <div class="platform-copy">
-                <span class="platform-kicker">Distributed releases</span>
-                <h4>Official Music</h4>
-                <p>DistroKid topic channel and full releases</p>
+                <span class="platform-kicker">Released song streams</span>
+                <h4>YouTube Music Releases</h4>
+                <p>Official DistroKid uploads and auto-generated song streams</p>
               </div>
               <span class="platform-arrow">↗</span>
             </a>
@@ -778,7 +857,7 @@
               <div class="platform-copy">
                 <span class="platform-kicker">Shows & updates</span>
                 <h4>Facebook</h4>
-                <p>Live clips, announcements, and recent performances</p>
+                <p>Booking updates, live clips, announcements, and recent shows</p>
               </div>
               <span class="platform-arrow">↗</span>
             </a>
@@ -920,15 +999,58 @@
     <section id="contact" data-spy>
       <div class="wrap">
         <div class="contact-card">
-          <div>
+          <div class="contact-copy">
             <p class="eyebrow">Booking & questions</p>
             <h2>Find the right sound for the room.</h2>
             <p>Solo music, the duo, Tree House Trio, or a full-band performance—send the date, location, and kind of event, and Cooper will help match the project to it.</p>
+            <div class="contact-direct">
+              <a href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">coopermorrismusic@gmail.com</a>
+              <a href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">Message on Facebook ↗</a>
+            </div>
           </div>
-          <div class="contact-actions">
-            <a class="button primary email" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">coopermorrismusic@gmail.com</a>
-            <a class="button secondary" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
-          </div>
+
+          <form class="booking-form" id="bookingForm">
+            <div class="form-row">
+              <label>
+                Your name
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+              <label>
+                Your email
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Event date
+                <input type="date" name="date">
+              </label>
+              <label>
+                Location
+                <input type="text" name="location" autocomplete="address-level2" placeholder="City or venue">
+              </label>
+            </div>
+
+            <label>
+              Music option
+              <select name="project">
+                <option value="Not sure yet">Not sure yet</option>
+                <option value="Cooper Morris solo">Cooper Morris solo</option>
+                <option value="Cooper & Jen">Cooper & Jen</option>
+                <option value="Tree House Trio">Tree House Trio</option>
+                <option value="Born of Wildfires">Born of Wildfires</option>
+              </select>
+            </label>
+
+            <label>
+              Tell Cooper about the event
+              <textarea name="message" rows="5" placeholder="Type of event, approximate times, audience, and anything else helpful"></textarea>
+            </label>
+
+            <button class="button primary form-submit" type="submit">Prepare booking email</button>
+            <p class="form-note">This opens your email app with Cooper as the recipient and your details filled in. You review it before sending.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -1054,6 +1176,35 @@
 
     galleryNext.addEventListener('click', () => {
       storyRail.scrollBy({ left: galleryStep(), behavior: 'smooth' });
+    });
+
+    const bookingForm = document.getElementById('bookingForm');
+
+    bookingForm.addEventListener('submit', event => {
+      event.preventDefault();
+
+      const data = new FormData(bookingForm);
+      const name = (data.get('name') || '').trim();
+      const email = (data.get('email') || '').trim();
+      const date = data.get('date') || 'Not provided';
+      const location = (data.get('location') || '').trim() || 'Not provided';
+      const project = data.get('project') || 'Not sure yet';
+      const message = (data.get('message') || '').trim() || 'No additional message provided.';
+
+      const subject = `Booking inquiry from ${name}`;
+      const body = [
+        `Name: ${name}`,
+        `Reply email: ${email}`,
+        `Event date: ${date}`,
+        `Location: ${location}`,
+        `Music option: ${project}`,
+        '',
+        'Event details:',
+        message
+      ].join('\n');
+
+      window.location.href =
+        `mailto:coopermorrismusic@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   </script>
 </body>

@@ -64,3 +64,11 @@ Keep every image in the same folder as `index.html`.
 - Added previous/next gallery buttons near the gallery heading
 - Hidden the difficult-to-reach bottom scrollbar
 - Removed the split two-photo collage from the gallery
+
+## Version 2.8
+
+- Four clear main links: Spotify, YouTube videos, YouTube released-song streams, and Facebook
+- Renamed the DistroKid topic link to YouTube Music Releases
+- Added a booking inquiry form
+- The form opens a prepared email addressed to Cooper, with the visitor's details already filled in
+- Kept direct email and Facebook contact links as fallbacks
