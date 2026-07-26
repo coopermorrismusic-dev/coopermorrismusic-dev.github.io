@@ -309,37 +309,64 @@
     }
     .platform-card {
       text-decoration: none;
-      transition: transform .2s ease;
+      transition: transform .2s ease, border-color .2s ease;
     }
     .platform-card:hover { transform: translateY(-3px); }
-    .platform-photo {
+
+    .platform-brand {
+      min-height: 210px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      align-items: end;
+      gap: 18px;
       position: relative;
-      min-height: 250px;
       overflow: hidden;
-      padding: 0;
+      border-radius: 24px;
+    }
+    .platform-brand::before {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -75px;
+      top: -100px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: 0 0 0 38px rgba(255,255,255,.025);
+    }
+    .youtube-card { background: linear-gradient(145deg, #431616, #1c1010); }
+    .music-card { background: linear-gradient(145deg, #315441, #14251c); }
+    .facebook-card { background: linear-gradient(145deg, #254a80, #111e34); }
+
+    .platform-icon {
+      width: 72px;
+      height: 72px;
+      position: relative;
+      z-index: 1;
+      color: #ff3b30;
+    }
+    .music-card .platform-icon { color: #8fc1a4; }
+    .facebook-card .platform-icon { color: #5c8fe1; }
+    .platform-icon svg {
+      width: 100%;
+      height: 100%;
       display: block;
     }
-    .platform-photo > img {
-      position: absolute;
-      inset: 0;
-      height: 100%;
-      object-fit: cover;
-      opacity: .82;
-      transition: transform .4s ease, opacity .3s ease;
+
+    .platform-copy {
+      position: relative;
+      z-index: 1;
     }
-    .platform-photo:hover > img { transform: scale(1.035); opacity: .94; }
-    .platform-overlay {
-      position: absolute;
-      inset: 0;
-      padding: 22px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 15px;
-      background: linear-gradient(transparent 25%, rgba(10,14,11,.9));
+    .platform-card h4 {
+      margin: 2px 0 0;
+      font-size: 1.55rem;
     }
-    .platform-card h4 { margin: 2px 0 0; font-size: 1.55rem; }
-    .platform-card p { margin: 4px 0 0; color: #d3dad4; font-size: .9rem; }
+    .platform-card p {
+      margin: 4px 0 0;
+      color: #d3dad4;
+      font-size: .9rem;
+    }
     .platform-kicker {
       color: #e0b580;
       font-size: .69rem;
@@ -347,7 +374,12 @@
       text-transform: uppercase;
       font-weight: 850;
     }
-    .platform-arrow { font-size: 1.6rem; }
+    .platform-arrow {
+      position: relative;
+      z-index: 1;
+      align-self: start;
+      font-size: 1.6rem;
+    }
 
     /* PROJECTS */
     .projects { background: #e8dfd1; }
@@ -438,9 +470,10 @@
       scroll-snap-type: inline mandatory;
       padding: 3px max(19px, calc((100vw - 1180px)/2)) 20px;
       align-items: start;
-      scrollbar-width: thin;
-      scrollbar-color: var(--forest) transparent;
+      scrollbar-width: none;
     }
+    .story-rail::-webkit-scrollbar { display: none; }
+
     .story-card {
       position: relative;
       scroll-snap-align: center;
@@ -477,11 +510,37 @@
       color: rgba(255,255,255,.84);
       font-size: 1rem;
     }
-    .scroll-note {
+    .gallery-toolbar {
       width: min(1180px, calc(100% - 38px));
       margin: -4px auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .scroll-note {
+      margin: 0;
       color: var(--muted);
       font-size: .9rem;
+    }
+    .gallery-buttons {
+      display: flex;
+      gap: 9px;
+    }
+    .gallery-button {
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(255,255,255,.7);
+      color: var(--ink);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .gallery-button:hover {
+      transform: translateY(-2px);
+      background: white;
     }
 
     /* CONTACT */
@@ -571,7 +630,7 @@
         gap: 14px;
       }
       .story-caption { padding: 72px 20px 20px; }
-      .scroll-note { width: calc(100% - 24px); }
+      .gallery-toolbar { width: calc(100% - 24px); }
       .footer-inner { flex-direction: column; }
     }
 
@@ -679,26 +738,49 @@
           </article>
 
           <div class="platforms">
-            <a class="platform-card platform-photo" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
-              <img src="solo-closeup.webp" alt="" />
-              <div class="platform-overlay">
-                <div><span class="platform-kicker">Video channel</span><h4>YouTube</h4><p>Performances, videos, and music content</p></div>
-                <span class="platform-arrow">↗</span>
+            <a class="platform-card platform-brand youtube-card" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
+              <div class="platform-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <rect x="5" y="14" width="54" height="36" rx="12" fill="currentColor"/>
+                  <path d="M27 23.5 43 32 27 40.5Z" fill="white"/>
+                </svg>
               </div>
+              <div class="platform-copy">
+                <span class="platform-kicker">Video channel</span>
+                <h4>YouTube</h4>
+                <p>Performances, videos, and music content</p>
+              </div>
+              <span class="platform-arrow">↗</span>
             </a>
-            <a class="platform-card platform-photo" href="https://www.youtube.com/channel/UCWCFUc6fd67h07dIiyAMkcg" target="_blank" rel="noopener noreferrer">
-              <img src="hero.webp" alt="" />
-              <div class="platform-overlay">
-                <div><span class="platform-kicker">Distributed releases</span><h4>Official Music</h4><p>DistroKid topic channel and full releases</p></div>
-                <span class="platform-arrow">↗</span>
+
+            <a class="platform-card platform-brand music-card" href="https://www.youtube.com/channel/UCWCFUc6fd67h07dIiyAMkcg" target="_blank" rel="noopener noreferrer">
+              <div class="platform-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle cx="32" cy="32" r="28" fill="currentColor"/>
+                  <path d="M38 17v25.5a8 8 0 1 1-4-7.1V23l15-3v17.5a8 8 0 1 1-4-7.1V17.6L38 19z" fill="white"/>
+                </svg>
               </div>
+              <div class="platform-copy">
+                <span class="platform-kicker">Distributed releases</span>
+                <h4>Official Music</h4>
+                <p>DistroKid topic channel and full releases</p>
+              </div>
+              <span class="platform-arrow">↗</span>
             </a>
-            <a class="platform-card platform-photo" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">
-              <img src="trio-current.webp" alt="" />
-              <div class="platform-overlay">
-                <div><span class="platform-kicker">Shows & updates</span><h4>Facebook</h4><p>Live clips, announcements, and recent performances</p></div>
-                <span class="platform-arrow">↗</span>
+
+            <a class="platform-card platform-brand facebook-card" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">
+              <div class="platform-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle cx="32" cy="32" r="29" fill="currentColor"/>
+                  <path d="M36.5 52V34h6l1-7h-7v-4.5c0-2 1-3.5 3.8-3.5H44v-6.2c-1.4-.2-3.3-.4-5.5-.4-5.5 0-9.3 3.4-9.3 9.6v5H23v7h6.2v18z" fill="white"/>
+                </svg>
               </div>
+              <div class="platform-copy">
+                <span class="platform-kicker">Shows & updates</span>
+                <h4>Facebook</h4>
+                <p>Live clips, announcements, and recent performances</p>
+              </div>
+              <span class="platform-arrow">↗</span>
             </a>
           </div>
         </div>
@@ -784,8 +866,14 @@
         </div>
       </div>
 
-      <p class="scroll-note">Scroll sideways through the gallery →</p>
-      <div class="story-rail" aria-label="Scrollable performance gallery">
+      <div class="gallery-toolbar">
+        <p class="scroll-note">Scroll sideways through the gallery</p>
+        <div class="gallery-buttons" aria-label="Gallery controls">
+          <button class="gallery-button" id="galleryPrev" type="button" aria-label="Previous gallery photo">←</button>
+          <button class="gallery-button" id="galleryNext" type="button" aria-label="Next gallery photo">→</button>
+        </div>
+      </div>
+      <div class="story-rail" id="storyRail" aria-label="Scrollable performance gallery">
         <article class="story-card">
           <img src="trio-treehouse.webp" alt="Tree House Trio performing on a wooden platform among tall trees" />
           <div class="story-caption"><h3>The tree-house stage</h3><p>A setting that helped give the trio its name: instruments, voices, and an audience gathered among the trees.</p></div>
@@ -810,11 +898,6 @@
         <article class="story-card wide">
           <img src="trio-ocf.webp" alt="Tree House Trio performing at Oregon Country Fair" />
           <div class="story-caption"><h3>Oregon Country Fair</h3><p>A stripped-back trio performance under an evening sky, surrounded by the particular magic of Fair.</p></div>
-        </article>
-
-        <article class="story-card">
-          <img src="trio-recent.webp" alt="Two recent Tree House Trio performances at Churchill Estates and Cottage Grove Public Market" />
-          <div class="story-caption"><h3>One trio, very different rooms</h3><p>Recent shows at Churchill Estates and the Cottage Grove Public Market—part of a fast-growing run of weekend performances.</p></div>
         </article>
 
         <article class="story-card wide">
@@ -951,6 +1034,26 @@
       updateActiveSection();
       const active = document.querySelector('.nav-link.active');
       if (active) moveIndicator(active);
+    });
+
+    const storyRail = document.getElementById('storyRail');
+    const galleryPrev = document.getElementById('galleryPrev');
+    const galleryNext = document.getElementById('galleryNext');
+
+    function galleryStep() {
+      const firstCard = storyRail.querySelector('.story-card');
+      if (!firstCard) return storyRail.clientWidth * .8;
+      const styles = getComputedStyle(storyRail);
+      const gap = parseFloat(styles.columnGap || styles.gap || 0);
+      return firstCard.getBoundingClientRect().width + gap;
+    }
+
+    galleryPrev.addEventListener('click', () => {
+      storyRail.scrollBy({ left: -galleryStep(), behavior: 'smooth' });
+    });
+
+    galleryNext.addEventListener('click', () => {
+      storyRail.scrollBy({ left: galleryStep(), behavior: 'smooth' });
     });
   </script>
 </body>

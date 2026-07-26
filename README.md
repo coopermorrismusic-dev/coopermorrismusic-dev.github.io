@@ -56,3 +56,11 @@ Keep every image in the same folder as `index.html`.
 - Photo-backed YouTube, Official Music, and Facebook cards
 - Born of Wildfires and Tree House Trio logos moved into their description areas
 - Gallery images keep their natural dimensions without black bars
+
+## Version 2.7
+
+- Removed unrelated photos from the YouTube, Official Music, and Facebook links
+- Added clear platform-specific branded cards
+- Added previous/next gallery buttons near the gallery heading
+- Hidden the difficult-to-reach bottom scrollbar
+- Removed the split two-photo collage from the gallery
