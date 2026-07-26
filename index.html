@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cooper Morris is a singer-songwriter and live musician based in Eugene, Oregon." />
+  <meta name="theme-color" content="#efe8dc" />
+  <meta property="og:title" content="Cooper Morris Music" />
+  <meta property="og:description" content="Music, videos, live performance, and booking information for Cooper Morris." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="hero.webp" />
+  <title>Cooper Morris Music</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --paper: #f3eee5;
+      --paper-deep: #e4dbcd;
+      --ink: #171916;
+      --muted: #65685f;
+      --forest: #2f4b3b;
+      --forest-dark: #1e3227;
+      --gold: #ba8751;
+      --line: rgba(23, 25, 22, 0.15);
+      --card: rgba(255, 255, 255, 0.53);
+      --shadow: 0 24px 70px rgba(24, 30, 24, 0.13);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(186, 135, 81, 0.13), transparent 33rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+    img { display: block; width: 100%; }
+    .wrap { width: min(1160px, calc(100% - 38px)); margin-inline: auto; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: white;
+      padding: 10px 14px;
+      border-radius: 999px;
+      z-index: 99;
+    }
+    .skip-link:focus { left: 12px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(243, 238, 229, 0.82);
+      border-bottom: 1px solid rgba(23, 25, 22, 0.08);
+    }
+
+    nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      letter-spacing: -0.035em;
+      font-weight: 700;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { text-decoration: none; font-size: 0.94rem; font-weight: 650; }
+    .nav-links a:hover { color: var(--forest); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 750;
+      border: 1px solid var(--ink);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(23,25,22,.14); }
+    .button.primary { background: var(--ink); color: white; }
+    .button.secondary { background: rgba(255,255,255,.55); }
+    .button.small { min-height: 40px; padding-inline: 17px; font-size: .9rem; }
+
+    .hero {
+      padding: clamp(46px, 8vw, 92px) 0 70px;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: clamp(34px, 7vw, 82px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--forest);
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
+
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+    h1 {
+      margin: 0;
+      font-size: clamp(4rem, 9.4vw, 8rem);
+      line-height: .86;
+      letter-spacing: -.067em;
+      font-weight: 700;
+      max-width: 760px;
+    }
+    h1 span { color: var(--forest); }
+
+    .hero-copy {
+      max-width: 610px;
+      margin: 25px 0 0;
+      font-size: clamp(1.06rem, 1.7vw, 1.3rem);
+      color: #454941;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+    .hero-image-wrap { position: relative; }
+    .hero-image {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 48% center;
+      border-radius: 46% 46% 22px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.7);
+    }
+    .stamp {
+      position: absolute;
+      left: -24px;
+      bottom: 34px;
+      width: 122px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #171916;
+      border: 7px solid var(--paper);
+      font-size: .76rem;
+      line-height: 1.2;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 850;
+      transform: rotate(-9deg);
+    }
+
+    section { padding: 88px 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 35px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(2.8rem, 6vw, 5.7rem);
+      letter-spacing: -.055em;
+      line-height: .92;
+    }
+    .section-head p { margin: 0; color: var(--muted); max-width: 590px; }
+
+    .listen {
+      background: var(--forest-dark);
+      color: #f7f1e8;
+      position: relative;
+      overflow: hidden;
+    }
+    .listen::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%;
+      right: -180px;
+      top: -160px;
+      box-shadow: 0 0 0 55px rgba(255,255,255,.025), 0 0 0 110px rgba(255,255,255,.018);
+    }
+    .listen .eyebrow { color: #d7ad7d; }
+    .listen .section-head p { color: #c9cfc8; }
+    .spotify-frame {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.13);
+      padding: 12px;
+      border-radius: 22px;
+    }
+    .spotify-frame iframe { display: block; width: 100%; border: 0; border-radius: 12px; }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .link-card {
+      min-height: 180px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+      padding: 24px;
+      text-decoration: none;
+      background: rgba(255,255,255,.055);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .link-card:hover { background: rgba(255,255,255,.1); transform: translateY(-3px); }
+    .link-card .arrow { font-size: 1.6rem; align-self: flex-end; }
+    .link-card h3 { margin: 0; font-size: 1.55rem; }
+    .link-card p { margin: 5px 0 0; color: #bdc6bd; font-size: .92rem; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(34px, 7vw, 78px);
+      align-items: center;
+    }
+    .about-photo {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .about-copy h2 {
+      margin: 0 0 22px;
+      font-size: clamp(3rem, 6vw, 5.3rem);
+      letter-spacing: -.055em;
+      line-height: .92;
+    }
+    .about-copy p { color: #4f534c; font-size: 1.05rem; }
+    .about-copy strong { color: var(--ink); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-top: 40px;
+    }
+    .gallery img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      min-height: 290px;
+    }
+    .gallery img:first-child { aspect-ratio: 16 / 10; }
+    .gallery img:last-child { aspect-ratio: 4 / 5; }
+
+    .contact-card {
+      background: var(--gold);
+      border-radius: 36px;
+      padding: clamp(32px, 7vw, 76px);
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 50px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .contact-card h2 {
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 6.7rem);
+      line-height: .88;
+      letter-spacing: -.06em;
+    }
+    .contact-card p { margin: 14px 0 0; font-size: 1.08rem; max-width: 580px; }
+    .contact-actions { display: flex; flex-direction: column; gap: 12px; }
+    .email { word-break: break-word; }
+
+    footer { padding: 36px 0 50px; }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+      font-size: .9rem;
+      border-top: 1px solid var(--line);
+      padding-top: 25px;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 17px; }
+
+    @media (max-width: 850px) {
+      .nav-links a:not(.button) { display: none; }
+      .hero, .about-grid, .contact-card, .section-head { grid-template-columns: 1fr; }
+      .hero { padding-top: 38px; }
+      .hero-image-wrap { width: min(540px, 92%); margin-inline: auto; }
+      .stamp { left: -12px; }
+      .section-head { gap: 16px; }
+      .link-grid { grid-template-columns: 1fr; }
+      .link-card { min-height: 135px; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery img { max-height: 520px; }
+      .contact-actions { align-items: flex-start; }
+    }
+
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 24px, 1160px); }
+      nav { min-height: 66px; }
+      .nav-links { gap: 10px; }
+      .button.small { padding-inline: 14px; }
+      h1 { font-size: clamp(3.55rem, 20vw, 5.3rem); }
+      section { padding: 66px 0; }
+      .stamp { width: 95px; border-width: 5px; font-size: .64rem; }
+      .hero-image { border-radius: 43% 43% 18px 18px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#top">Cooper Morris Music</a>
+      <div class="nav-links">
+        <a href="#listen">Listen</a>
+        <a href="#about">About</a>
+        <a class="button small primary" href="#contact">Book Cooper</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div id="top" class="hero wrap">
+      <div>
+        <p class="eyebrow">Singer-songwriter · Eugene, Oregon</p>
+        <h1>Cooper<br><span>Morris</span></h1>
+        <p class="hero-copy">Original music, live performance, and songs made to bring people together.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#listen">Listen now</a>
+          <a class="button secondary" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">Booking inquiry</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="hero.webp" alt="Cooper Morris seated outdoors with an acoustic guitar" />
+        <div class="stamp" aria-hidden="true">Live music<br>since 2017</div>
+      </div>
+    </div>
+
+    <section id="listen" class="listen">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Music & video</p>
+            <h2>Listen up.</h2>
+          </div>
+          <p>Stream Cooper’s original releases, watch performance and music content, or explore the official YouTube music catalog.</p>
+        </div>
+
+        <div class="spotify-frame">
+          <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/artist/6AYi6OT4Fbtsaiw4BuOyjr?utm_source=generator&theme=0"
+            height="352"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Cooper Morris on Spotify"></iframe>
+        </div>
+
+        <div class="link-grid">
+          <a class="link-card" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <div><h3>YouTube</h3><p>Videos, performances, and music content</p></div>
+          </a>
+          <a class="link-card" href="https://www.youtube.com/channel/UCWCFUc6fd67h07dIiyAMkcg" target="_blank" rel="noopener noreferrer">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <div><h3>Official Music</h3><p>Topic channel and distributed releases</p></div>
+          </a>
+          <a class="link-card" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <div><h3>Facebook</h3><p>Updates, shows, and announcements</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <img class="about-photo" src="performance.webp" alt="Cooper Morris singing and playing acoustic guitar onstage" />
+          <div class="about-copy">
+            <p class="eyebrow">About Cooper</p>
+            <h2>Music with heart—and a little room to dance.</h2>
+            <p>Cooper Morris is a singer-songwriter and live musician based in Eugene, Oregon. He has performed at wineries, breweries, private events, and venues around the area since 2017.</p>
+            <p>His sets move through <strong>folk, blues, jazz, and pop</strong>, mixing familiar songs with original music. Cooper performs solo, as a duo with his sister Jen Sennett, and with local bands for events that call for a bigger sound.</p>
+            <a class="button secondary" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">Ask about a performance</a>
+          </div>
+        </div>
+
+        <div class="gallery" aria-label="Performance photos">
+          <img src="band.webp" alt="Cooper Morris performing with a band on an outdoor stage" />
+          <img src="duo.webp" alt="Cooper Morris and Jen Sennett holding their instruments after a performance" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow">Booking & questions</p>
+            <h2>Let’s make some music.</h2>
+            <p>Planning an event, looking for live music, or just want to get in touch? Send a few details and Cooper will reply as soon as possible.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary email" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">coopermorrismusic@gmail.com</a>
+            <a class="button secondary" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 Cooper Morris Music</span>
+      <div class="footer-links">
+        <a href="https://open.spotify.com/artist/6AYi6OT4Fbtsaiw4BuOyjr" target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
