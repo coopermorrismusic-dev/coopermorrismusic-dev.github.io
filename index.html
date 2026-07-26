@@ -620,11 +620,18 @@
       cursor: pointer;
       margin-top: 2px;
     }
+    .email-app-fallback {
+      justify-self: center;
+      font-size: .84rem;
+      font-weight: 760;
+      text-underline-offset: 3px;
+    }
     .form-note {
       margin: 0 !important;
       font-size: .78rem !important;
       color: #565a52;
       line-height: 1.42;
+      text-align: center;
     }
 
     footer { padding: 36px 0 50px; }
@@ -1048,8 +1055,9 @@
               <textarea name="message" rows="5" placeholder="Type of event, approximate times, audience, and anything else helpful"></textarea>
             </label>
 
-            <button class="button primary form-submit" type="submit">Prepare booking email</button>
-            <p class="form-note">This opens your email app with Cooper as the recipient and your details filled in. You review it before sending.</p>
+            <button class="button primary form-submit" type="submit">Open booking email in Gmail</button>
+            <a class="email-app-fallback" id="emailAppFallback" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">Use another email app instead</a>
+            <p class="form-note">Gmail opens with Cooper as the recipient and your details filled in. You review it before sending.</p>
           </form>
         </div>
       </div>
@@ -1203,8 +1211,19 @@
         message
       ].join('\n');
 
-      window.location.href =
+      const gmailUrl =
+        `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent('coopermorrismusic@gmail.com')}` +
+        `&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      const mailtoUrl =
         `mailto:coopermorrismusic@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      document.getElementById('emailAppFallback').href = mailtoUrl;
+
+      const gmailWindow = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+      if (!gmailWindow) {
+        window.location.href = gmailUrl;
+      }
     });
   </script>
 </body>

@@ -72,3 +72,8 @@ Keep every image in the same folder as `index.html`.
 - Added a booking inquiry form
 - The form opens a prepared email addressed to Cooper, with the visitor's details already filled in
 - Kept direct email and Facebook contact links as fallbacks
+
+## Version 2.9
+
+- Booking form now opens a prepared Gmail compose page instead of depending on a configured desktop email app
+- Added a normal email-app fallback link
