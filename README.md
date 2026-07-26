@@ -34,3 +34,11 @@ Keep every image in the same folder as `index.html`.
 - Replaced the solo project image with the new close-up performance photo
 - Replaced the Tree House Trio project image with the current group portrait
 - Added the new warm-light trio performance photo to the gallery
+
+## Version 2.4 gallery redesign
+
+- Much larger gallery images
+- Captions now overlay the bottom of each photo
+- Less blank space around the gallery
+- Wider cards on desktop and mobile
+- Full image proportions remain visible
