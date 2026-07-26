@@ -47,3 +47,12 @@ Keep every image in the same folder as `index.html`.
 
 - A browser refresh now returns the page to the top
 - Normal navigation buttons and section links still work
+
+## Version 2.6
+
+- New custom C favicon
+- Updated location to Lane County, Oregon
+- Spotify moved beside the Listen/Watch heading
+- Photo-backed YouTube, Official Music, and Facebook cards
+- Born of Wildfires and Tree House Trio logos moved into their description areas
+- Gallery images keep their natural dimensions without black bars

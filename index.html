@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="hero.webp" />
   <title>Cooper Morris Music</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.svg?v=6" type="image/svg+xml" />
   <style>
     :root {
       --paper: #f3eee5;
@@ -246,6 +246,28 @@
     .listen .eyebrow { color: #d9ad7c; }
     .listen .section-head p { color: #cad1ca; }
 
+    .listen-feature {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(28px, 5vw, 68px);
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .listen-intro h2 {
+      margin: 0;
+      font-size: clamp(3.4rem, 7vw, 6.8rem);
+      line-height: .87;
+      letter-spacing: -.06em;
+    }
+    .listen-intro > p:last-child {
+      max-width: 520px;
+      margin: 22px 0 0;
+      color: #cad1ca;
+      font-size: 1.03rem;
+    }
+
     .listen-grid {
       position: relative;
       z-index: 1;
@@ -260,7 +282,7 @@
       border-radius: 24px;
     }
 
-    .spotify-frame { padding: 12px; grid-column: 1 / -1; }
+    .spotify-frame { padding: 12px; }
     .spotify-frame iframe { border-radius: 14px; min-height: 352px; }
 
     .video-card { overflow: hidden; }
@@ -286,18 +308,46 @@
       gap: 14px;
     }
     .platform-card {
-      padding: 20px;
       text-decoration: none;
+      transition: transform .2s ease;
+    }
+    .platform-card:hover { transform: translateY(-3px); }
+    .platform-photo {
+      position: relative;
+      min-height: 250px;
+      overflow: hidden;
+      padding: 0;
+      display: block;
+    }
+    .platform-photo > img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      opacity: .82;
+      transition: transform .4s ease, opacity .3s ease;
+    }
+    .platform-photo:hover > img { transform: scale(1.035); opacity: .94; }
+    .platform-overlay {
+      position: absolute;
+      inset: 0;
+      padding: 22px;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 15px;
-      transition: background .2s ease, transform .2s ease;
+      background: linear-gradient(transparent 25%, rgba(10,14,11,.9));
     }
-    .platform-card:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
-    .platform-card h4 { margin: 0; font-size: 1.25rem; }
-    .platform-card p { margin: 3px 0 0; color: #bac3bb; font-size: .88rem; }
-    .platform-arrow { font-size: 1.4rem; }
+    .platform-card h4 { margin: 2px 0 0; font-size: 1.55rem; }
+    .platform-card p { margin: 4px 0 0; color: #d3dad4; font-size: .9rem; }
+    .platform-kicker {
+      color: #e0b580;
+      font-size: .69rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
+    .platform-arrow { font-size: 1.6rem; }
 
     /* PROJECTS */
     .projects { background: #e8dfd1; }
@@ -330,6 +380,18 @@
       max-height: 150px;
       object-fit: contain;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,.24));
+    }
+    .project-logo-inline {
+      width: 112px;
+      max-height: 100px;
+      object-fit: contain;
+      object-position: left center;
+      margin: 0 0 20px;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.14));
+    }
+    .treehouse-inline {
+      width: 155px;
+      max-height: 135px;
     }
     .project-copy {
       padding: clamp(32px, 6vw, 68px);
@@ -382,20 +444,19 @@
     .story-card {
       position: relative;
       scroll-snap-align: center;
-      min-height: 440px;
       overflow: hidden;
       border-radius: 30px;
-      background: #242821;
+      background: transparent;
       border: 1px solid rgba(23,25,22,.1);
       box-shadow: 0 20px 52px rgba(24,30,24,.13);
     }
     .story-card img {
       width: 100%;
       height: auto;
-      min-height: 440px;
-      max-height: 720px;
-      object-fit: contain;
-      background: #242821;
+      min-height: 0;
+      max-height: none;
+      object-fit: initial;
+      background: transparent;
     }
     .story-card.wide img { object-position: center; }
     .story-caption {
@@ -470,14 +531,13 @@
       .hero-image-wrap { width: min(540px, 92%); margin-inline: auto; }
       .stamp { left: -12px; }
       .section-head { gap: 16px; }
-      .listen-grid { grid-template-columns: 1fr; }
+      .listen-feature, .listen-grid { grid-template-columns: 1fr; }
       .spotify-frame, .platforms { grid-column: auto; }
       .platforms { grid-template-columns: 1fr; }
       .project-card { grid-template-columns: 1fr; }
       .project-card:nth-child(even) .project-image { order: 0; }
       .project-image { min-height: 450px; }
       .story-rail { grid-auto-columns: minmax(330px, 86vw); }
-      .story-card, .story-card img { min-height: 390px; }
       .contact-actions { align-items: flex-start; }
     }
 
@@ -510,7 +570,6 @@
         padding-inline: 12px;
         gap: 14px;
       }
-      .story-card, .story-card img { min-height: 360px; }
       .story-caption { padding: 72px 20px 20px; }
       .scroll-note { width: calc(100% - 24px); }
       .footer-inner { flex-direction: column; }
@@ -542,7 +601,7 @@
   <main>
     <div id="home" class="hero wrap" data-spy>
       <div>
-        <p class="eyebrow">Singer-songwriter · Producer · Eugene, Oregon</p>
+        <p class="eyebrow">Singer-songwriter · Producer · Lane County, Oregon</p>
         <h1>Cooper<br><span>Morris</span></h1>
         <p class="hero-copy">Original music, self-produced recordings, and live performances built around connection, versatility, and a genuine love of making music with people.</p>
         <div class="hero-actions">
@@ -558,15 +617,12 @@
 
     <section id="listen" class="listen" data-spy>
       <div class="wrap">
-        <div class="section-head">
-          <div>
+        <div class="listen-feature">
+          <div class="listen-intro">
             <p class="eyebrow">Music & video</p>
-            <h2>Listen. Watch. Stay awhile.</h2>
+            <h2>Listen.<br>Watch.<br>Stay awhile.</h2>
+            <p>Stream the full catalog, watch Cooper at the piano, hear Tree House Trio live, and follow along as new original recordings and performance videos are added.</p>
           </div>
-          <p>Stream the full catalog, watch Cooper at the piano, hear Tree House Trio live, and follow along as new original recordings and performance videos are added.</p>
-        </div>
-
-        <div class="listen-grid">
           <div class="spotify-frame">
             <iframe
               src="https://open.spotify.com/embed/artist/6AYi6OT4Fbtsaiw4BuOyjr?utm_source=generator&theme=0"
@@ -576,6 +632,9 @@
               loading="lazy"
               title="Cooper Morris on Spotify"></iframe>
           </div>
+        </div>
+
+        <div class="listen-grid">
 
           <article class="video-card">
             <iframe
@@ -620,14 +679,26 @@
           </article>
 
           <div class="platforms">
-            <a class="platform-card" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
-              <div><h4>YouTube</h4><p>Performances, videos, and music content</p></div><span class="platform-arrow">↗</span>
+            <a class="platform-card platform-photo" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
+              <img src="solo-closeup.webp" alt="" />
+              <div class="platform-overlay">
+                <div><span class="platform-kicker">Video channel</span><h4>YouTube</h4><p>Performances, videos, and music content</p></div>
+                <span class="platform-arrow">↗</span>
+              </div>
             </a>
-            <a class="platform-card" href="https://www.youtube.com/channel/UCWCFUc6fd67h07dIiyAMkcg" target="_blank" rel="noopener noreferrer">
-              <div><h4>Official Music</h4><p>Distributed releases and topic channel</p></div><span class="platform-arrow">↗</span>
+            <a class="platform-card platform-photo" href="https://www.youtube.com/channel/UCWCFUc6fd67h07dIiyAMkcg" target="_blank" rel="noopener noreferrer">
+              <img src="hero.webp" alt="" />
+              <div class="platform-overlay">
+                <div><span class="platform-kicker">Distributed releases</span><h4>Official Music</h4><p>DistroKid topic channel and full releases</p></div>
+                <span class="platform-arrow">↗</span>
+              </div>
             </a>
-            <a class="platform-card" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">
-              <div><h4>Facebook</h4><p>Shows, clips, and announcements</p></div><span class="platform-arrow">↗</span>
+            <a class="platform-card platform-photo" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">
+              <img src="trio-current.webp" alt="" />
+              <div class="platform-overlay">
+                <div><span class="platform-kicker">Shows & updates</span><h4>Facebook</h4><p>Live clips, announcements, and recent performances</p></div>
+                <span class="platform-arrow">↗</span>
+              </div>
             </a>
           </div>
         </div>
@@ -674,9 +745,9 @@
           <article class="project-card">
             <div class="project-image">
               <img class="main" src="bow-alesong.webp" alt="Born of Wildfires performing outdoors at Alesong" />
-              <img class="project-logo" src="bow-logo.webp" alt="Born of Wildfires flame logo" />
             </div>
             <div class="project-copy">
+              <img class="project-logo-inline" src="bow-logo.webp" alt="Born of Wildfires flame logo" />
               <span class="project-number">03 · Full band</span>
               <h3>Born of Wildfires</h3>
               <p>Born of Wildfires expands the music into a full-band setting: bigger rhythm, more electric color, and the energy to carry across an outdoor stage or a busy room.</p>
@@ -688,9 +759,9 @@
           <article class="project-card">
             <div class="project-image">
               <img class="main" src="trio-current.webp" alt="Cooper, Jen, and Dakota posing together after a Tree House Trio performance" />
-              <img class="project-logo" src="treehouse-logo.webp" alt="Tree House Trio logo" />
             </div>
             <div class="project-copy">
+              <img class="project-logo-inline treehouse-inline" src="treehouse-logo.webp" alt="Tree House Trio logo" />
               <span class="project-number">04 · Current chapter</span>
               <h3>Tree House Trio</h3>
               <p>Tree House Trio brings Cooper, Jen, and Dakota together in a playful, flexible live group built around strong vocals, acoustic instruments, electric color, and clear chemistry.</p>

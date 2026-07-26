@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#1e3227"/>
-  <path d="M20 17h25v8H29v8h13v8H29v6h16v8H20z" fill="#f3eee5"/>
+  <rect width="64" height="64" rx="18" fill="#2f4b3b"/>
+  <circle cx="32" cy="32" r="24" fill="#f3eee5"/>
+  <text x="32" y="43" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="38" font-weight="700" fill="#2f4b3b">C</text>
 </svg>
