@@ -28,7 +28,7 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 74px; }
     body {
       margin: 0;
       color: var(--ink);
@@ -208,7 +208,8 @@
       transform: rotate(-9deg);
     }
 
-    section { padding: 92px 0; }
+    section { padding: 92px 0; scroll-margin-top: 74px; }
+    #home { scroll-margin-top: 74px; }
     .section-head {
       display: grid;
       grid-template-columns: .82fr 1.18fr;
@@ -268,50 +269,15 @@
     .video-copy h3 { margin: 0; font-size: 1.55rem; }
     .video-copy p { margin: 7px 0 0; color: #bcc6bd; font-size: .93rem; }
 
-    .reel-card {
-      min-height: 350px;
-      position: relative;
+    .facebook-frame {
+      aspect-ratio: 560 / 314;
       overflow: hidden;
-      text-decoration: none;
-      display: flex;
-      align-items: end;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,.13);
       background: #111;
     }
-    .reel-card img {
-      position: absolute;
-      inset: 0;
+    .facebook-frame iframe {
+      width: 100%;
       height: 100%;
-      object-fit: cover;
-      opacity: .68;
-      transition: transform .4s ease, opacity .3s ease;
     }
-    .reel-card:hover img { transform: scale(1.025); opacity: .8; }
-    .reel-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(transparent 30%, rgba(0,0,0,.84));
-    }
-    .reel-copy {
-      position: relative;
-      z-index: 2;
-      padding: 24px;
-    }
-    .play {
-      display: inline-grid;
-      place-items: center;
-      width: 52px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: #f7f1e8;
-      color: var(--ink);
-      font-size: 1.2rem;
-      margin-bottom: 16px;
-    }
-    .reel-copy h3 { margin: 0; font-size: 1.8rem; }
-    .reel-copy p { margin: 6px 0 0; color: #d6ddd6; }
 
     .platforms {
       grid-column: 1 / -1;
@@ -406,6 +372,7 @@
       overscroll-behavior-inline: contain;
       scroll-snap-type: inline mandatory;
       padding: 3px max(19px, calc((100vw - 1180px)/2)) 26px;
+      align-items: start;
       scrollbar-width: thin;
       scrollbar-color: var(--forest) transparent;
     }
@@ -418,8 +385,11 @@
       box-shadow: 0 16px 40px rgba(24,30,24,.08);
     }
     .story-card img {
-      height: clamp(340px, 48vw, 610px);
-      object-fit: cover;
+      width: 100%;
+      height: auto;
+      max-height: 640px;
+      object-fit: contain;
+      background: #d8d0c5;
     }
     .story-card.wide img { object-position: center; }
     .story-caption { padding: 20px 22px 23px; }
@@ -493,6 +463,8 @@
       .wrap { width: min(100% - 24px, 1180px); }
       header { overflow: hidden; }
       nav { min-height: 67px; }
+      html { scroll-padding-top: 67px; }
+      section, #home { scroll-margin-top: 67px; }
       .nav-shell {
         width: 100%;
         justify-content: space-between;
@@ -603,14 +575,21 @@
             </div>
           </article>
 
-          <a class="reel-card" href="https://www.facebook.com/reel/1050129284039085" target="_blank" rel="noopener noreferrer">
-            <img src="trio-crowd.webp" alt="A crowd watching Tree House Trio perform outdoors" />
-            <div class="reel-copy">
-              <span class="play" aria-hidden="true">▶</span>
-              <h3>See the room come alive</h3>
-              <p>Watch the camera move through the audience during a recent Tree House Trio performance.</p>
+          <article class="video-card">
+            <div class="facebook-frame">
+              <iframe
+                src="https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1050129284039085%2F&amp;show_text=false&amp;width=560&amp;t=0"
+                title="Tree House Trio recent live performance on Facebook"
+                loading="lazy"
+                scrolling="no"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen></iframe>
             </div>
-          </a>
+            <div class="video-copy">
+              <h3>See the room come alive</h3>
+              <p>The camera moves through the audience during a recent Tree House Trio performance.</p>
+            </div>
+          </article>
 
           <div class="platforms">
             <a class="platform-card" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
@@ -640,7 +619,7 @@
         <div class="project-stack">
           <article class="project-card">
             <div class="project-image">
-              <img class="main" src="solo-treehouse.webp" alt="Cooper Morris performing solo with an acoustic guitar in a tree house setting" />
+              <img class="main" src="solo-closeup.webp" alt="Cooper Morris performing solo with an acoustic guitar during a Tree House Trio set" />
             </div>
             <div class="project-copy">
               <span class="project-number">01 · Solo artist</span>
@@ -680,7 +659,7 @@
 
           <article class="project-card">
             <div class="project-image">
-              <img class="main" src="trio-posed.webp" alt="Cooper, Jen, and Dakota posing together as Tree House Trio" />
+              <img class="main" src="trio-current.webp" alt="Cooper, Jen, and Dakota posing together after a Tree House Trio performance" />
               <img class="project-logo" src="treehouse-logo.webp" alt="Tree House Trio logo" />
             </div>
             <div class="project-copy">
@@ -712,6 +691,12 @@
           <img src="trio-treehouse.webp" alt="Tree House Trio performing on a wooden platform among tall trees" />
           <div class="story-caption"><h3>The tree-house stage</h3><p>A setting that helped give the trio its name: instruments, voices, and an audience gathered among the trees.</p></div>
         </article>
+
+        <article class="story-card wide">
+          <img src="trio-performing-new.webp" alt="Tree House Trio performing together in warm evening light" />
+          <div class="story-caption"><h3>A trio finding its rhythm</h3><p>A warm evening set with Cooper, Jen, and Dakota settling into the chemistry that has quickly filled the weekends.</p></div>
+        </article>
+
 
         <article class="story-card wide">
           <img src="trio-crowd.webp" alt="A large outdoor audience watching Tree House Trio perform" />
@@ -783,6 +768,7 @@
     const indicator = document.getElementById('navIndicator');
     const links = [...document.querySelectorAll('.nav-link')];
     const sections = [...document.querySelectorAll('[data-spy]')];
+    const header = document.querySelector('header');
 
     function moveIndicator(link) {
       const shellRect = navShell.getBoundingClientRect();
@@ -790,27 +776,68 @@
       indicator.style.width = `${linkRect.width}px`;
       indicator.style.transform = `translateX(${linkRect.left - shellRect.left - 4 + navShell.scrollLeft}px)`;
       links.forEach(item => item.classList.toggle('active', item === link));
+
+      const desiredLeft = link.offsetLeft - (navShell.clientWidth - link.offsetWidth) / 2;
+      navShell.scrollTo({ left: Math.max(0, desiredLeft), behavior: 'smooth' });
     }
 
     function setActive(id) {
       const link = links.find(item => item.dataset.section === id);
-      if (!link) return;
-      moveIndicator(link);
-      link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (link && !link.classList.contains('active')) moveIndicator(link);
     }
 
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter(entry => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      if (visible[0]) setActive(visible[0].target.id);
-    }, { rootMargin: '-22% 0px -58% 0px', threshold: [0, .12, .3, .55] });
+    function updateActiveSection() {
+      const marker = window.scrollY + header.offsetHeight + 26;
+      let current = sections[0].id;
 
-    sections.forEach(section => observer.observe(section));
-    links.forEach(link => link.addEventListener('click', () => setActive(link.dataset.section)));
+      for (const section of sections) {
+        if (section.offsetTop <= marker) current = section.id;
+      }
 
-    window.addEventListener('load', () => moveIndicator(document.querySelector('.nav-link.active')));
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        current = sections[sections.length - 1].id;
+      }
+
+      setActive(current);
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const id = link.dataset.section;
+        const target = document.getElementById(id);
+        const headerHeight = header.offsetHeight;
+
+        if (id === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+
+        setActive(id);
+      });
+    });
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('load', () => {
+      updateActiveSection();
+      const active = document.querySelector('.nav-link.active');
+      if (active) moveIndicator(active);
+    });
+
     window.addEventListener('resize', () => {
+      updateActiveSection();
       const active = document.querySelector('.nav-link.active');
       if (active) moveIndicator(active);
     });
