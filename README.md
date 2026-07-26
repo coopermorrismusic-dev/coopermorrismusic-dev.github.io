@@ -1,22 +1,22 @@
-# Cooper Morris Music website
+# Cooper Morris Music Website — Version 2
 
-A static one-page website designed for GitHub Pages.
+This version adds:
 
-## Upload to GitHub
+- A larger Spotify and video section
+- Embedded piano and Tree House Trio videos
+- A linked Facebook reel
+- Separate project sections for Cooper solo, Cooper & Jen, Born of Wildfires, and Tree House Trio
+- A captioned horizontal gallery
+- A navigation highlight that follows the current page section
 
-Upload these files to the root of the `coopermorrismusic-dev.github.io` repository:
+## Uploading the update
 
-- `index.html`
-- `favicon.svg`
-- `hero.webp`
-- `performance.webp`
-- `duo.webp`
-- `band.webp`
+In the GitHub repository:
 
-GitHub Pages will publish changes automatically after each commit.
+1. Choose **Add file → Upload files**
+2. Drag every file from this folder into the upload page
+3. Allow files with matching names to be replaced
+4. Choose **Commit changes**
+5. Wait about one minute, then hard-refresh the website with **Ctrl + F5**
 
-## Easy edits
-
-Most text and links are directly inside `index.html`. Use GitHub's pencil icon to edit the file, then choose **Commit changes**.
-
-Do not add a `CNAME` file until the custom domain is ready to be connected.
+Keep every image in the same folder as `index.html`.

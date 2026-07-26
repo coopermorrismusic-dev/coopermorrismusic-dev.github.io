@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cooper Morris is a singer-songwriter and live musician based in Eugene, Oregon." />
-  <meta name="theme-color" content="#efe8dc" />
+  <meta name="description" content="Music, videos, projects, live performance, and booking information for Eugene singer-songwriter and producer Cooper Morris." />
+  <meta name="theme-color" content="#f1ebdf" />
   <meta property="og:title" content="Cooper Morris Music" />
-  <meta property="og:description" content="Music, videos, live performance, and booking information for Cooper Morris." />
+  <meta property="og:description" content="Original music, live projects, videos, and booking information for Cooper Morris." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="hero.webp" />
   <title>Cooper Morris Music</title>
@@ -14,25 +14,26 @@
   <style>
     :root {
       --paper: #f3eee5;
-      --paper-deep: #e4dbcd;
+      --paper-deep: #dfd5c6;
       --ink: #171916;
-      --muted: #65685f;
+      --muted: #64675f;
       --forest: #2f4b3b;
-      --forest-dark: #1e3227;
-      --gold: #ba8751;
-      --line: rgba(23, 25, 22, 0.15);
-      --card: rgba(255, 255, 255, 0.53);
-      --shadow: 0 24px 70px rgba(24, 30, 24, 0.13);
+      --forest-dark: #1d3026;
+      --gold: #bc8952;
+      --rose: #a86654;
+      --line: rgba(23,25,22,.14);
+      --card: rgba(255,255,255,.57);
+      --shadow: 0 24px 70px rgba(24,30,24,.13);
       --radius: 28px;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     body {
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at top right, rgba(186, 135, 81, 0.13), transparent 33rem),
+        radial-gradient(circle at top right, rgba(188,137,82,.13), transparent 34rem),
         var(--paper);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.55;
@@ -40,7 +41,8 @@
 
     a { color: inherit; }
     img { display: block; width: 100%; }
-    .wrap { width: min(1160px, calc(100% - 38px)); margin-inline: auto; }
+    iframe { width: 100%; border: 0; display: block; }
+    .wrap { width: min(1180px, calc(100% - 38px)); margin-inline: auto; }
 
     .skip-link {
       position: absolute;
@@ -49,17 +51,17 @@
       background: white;
       padding: 10px 14px;
       border-radius: 999px;
-      z-index: 99;
+      z-index: 100;
     }
     .skip-link:focus { left: 12px; }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: rgba(243, 238, 229, 0.82);
-      border-bottom: 1px solid rgba(23, 25, 22, 0.08);
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(243,238,229,.86);
+      border-bottom: 1px solid rgba(23,25,22,.08);
     }
 
     nav {
@@ -71,16 +73,55 @@
     }
 
     .brand {
+      flex: 0 0 auto;
       text-decoration: none;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.25rem, 2vw, 1.65rem);
-      letter-spacing: -0.035em;
+      font-size: clamp(1.18rem, 2vw, 1.65rem);
+      letter-spacing: -.035em;
       font-weight: 700;
     }
 
-    .nav-links { display: flex; align-items: center; gap: 22px; }
-    .nav-links a { text-decoration: none; font-size: 0.94rem; font-weight: 650; }
-    .nav-links a:hover { color: var(--forest); }
+    .nav-shell {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      border: 1px solid rgba(23,25,22,.1);
+      border-radius: 999px;
+      background: rgba(255,255,255,.38);
+      overflow: hidden;
+    }
+
+    .nav-indicator {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      height: calc(100% - 8px);
+      width: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      box-shadow: 0 7px 18px rgba(23,25,22,.16);
+      transition: transform .32s ease, width .32s ease;
+      pointer-events: none;
+    }
+
+    .nav-link {
+      position: relative;
+      z-index: 1;
+      min-height: 38px;
+      padding: 0 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: .88rem;
+      font-weight: 760;
+      color: var(--ink);
+      transition: color .22s ease;
+      white-space: nowrap;
+    }
+    .nav-link.active { color: white; }
 
     .button {
       display: inline-flex;
@@ -90,16 +131,19 @@
       padding: 0 22px;
       border-radius: 999px;
       text-decoration: none;
-      font-weight: 750;
+      font-weight: 780;
       border: 1px solid var(--ink);
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(23,25,22,.14); }
     .button.primary { background: var(--ink); color: white; }
-    .button.secondary { background: rgba(255,255,255,.55); }
-    .button.small { min-height: 40px; padding-inline: 17px; font-size: .9rem; }
+    .button.secondary { background: rgba(255,255,255,.58); }
+    .button.light { background: #f7f1e8; color: var(--ink); border-color: #f7f1e8; }
+    .button.ghost-light { border-color: rgba(255,255,255,.55); color: white; background: rgba(255,255,255,.06); }
+    .button.small { min-height: 42px; padding-inline: 17px; font-size: .9rem; }
 
     .hero {
+      min-height: calc(100vh - 74px);
       padding: clamp(46px, 8vw, 92px) 0 70px;
       display: grid;
       grid-template-columns: 1.02fr .98fr;
@@ -116,7 +160,7 @@
       font-weight: 850;
     }
 
-    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+    h1, h2, h3, h4 { font-family: Georgia, "Times New Roman", serif; }
     h1 {
       margin: 0;
       font-size: clamp(4rem, 9.4vw, 8rem);
@@ -135,7 +179,6 @@
     }
 
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-
     .hero-image-wrap { position: relative; }
     .hero-image {
       aspect-ratio: 4 / 5;
@@ -156,7 +199,6 @@
       text-align: center;
       border-radius: 50%;
       background: var(--gold);
-      color: #171916;
       border: 7px solid var(--paper);
       font-size: .76rem;
       line-height: 1.2;
@@ -166,13 +208,13 @@
       transform: rotate(-9deg);
     }
 
-    section { padding: 88px 0; }
+    section { padding: 92px 0; }
     .section-head {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 40px;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 42px;
       align-items: end;
-      margin-bottom: 35px;
+      margin-bottom: 38px;
     }
     .section-head h2 {
       margin: 0;
@@ -180,8 +222,9 @@
       letter-spacing: -.055em;
       line-height: .92;
     }
-    .section-head p { margin: 0; color: var(--muted); max-width: 590px; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 620px; font-size: 1.03rem; }
 
+    /* LISTEN */
     .listen {
       background: var(--forest-dark);
       color: #f7f1e8;
@@ -191,87 +234,205 @@
     .listen::after {
       content: "";
       position: absolute;
-      width: 420px;
-      height: 420px;
-      border: 1px solid rgba(255,255,255,.13);
+      width: 480px;
+      height: 480px;
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 50%;
-      right: -180px;
-      top: -160px;
-      box-shadow: 0 0 0 55px rgba(255,255,255,.025), 0 0 0 110px rgba(255,255,255,.018);
+      right: -210px;
+      top: -190px;
+      box-shadow: 0 0 0 60px rgba(255,255,255,.023), 0 0 0 120px rgba(255,255,255,.015);
     }
-    .listen .eyebrow { color: #d7ad7d; }
-    .listen .section-head p { color: #c9cfc8; }
-    .spotify-frame {
+    .listen .eyebrow { color: #d9ad7c; }
+    .listen .section-head p { color: #cad1ca; }
+
+    .listen-grid {
       position: relative;
       z-index: 1;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.13);
-      padding: 12px;
-      border-radius: 22px;
-    }
-    .spotify-frame iframe { display: block; width: 100%; border: 0; border-radius: 12px; }
-
-    .link-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 18px;
-      position: relative;
-      z-index: 1;
-    }
-    .link-card {
-      min-height: 180px;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 22px;
-      padding: 24px;
-      text-decoration: none;
-      background: rgba(255,255,255,.055);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: background .2s ease, transform .2s ease;
-    }
-    .link-card:hover { background: rgba(255,255,255,.1); transform: translateY(-3px); }
-    .link-card .arrow { font-size: 1.6rem; align-self: flex-end; }
-    .link-card h3 { margin: 0; font-size: 1.55rem; }
-    .link-card p { margin: 5px 0 0; color: #bdc6bd; font-size: .92rem; }
-
-    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(34px, 7vw, 78px);
-      align-items: center;
+      gap: 20px;
     }
-    .about-photo {
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .about-copy h2 {
-      margin: 0 0 22px;
-      font-size: clamp(3rem, 6vw, 5.3rem);
-      letter-spacing: -.055em;
-      line-height: .92;
-    }
-    .about-copy p { color: #4f534c; font-size: 1.05rem; }
-    .about-copy strong { color: var(--ink); }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      margin-top: 40px;
+    .spotify-frame, .video-card, .platform-card {
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.055);
+      border-radius: 24px;
     }
-    .gallery img {
+
+    .spotify-frame { padding: 12px; grid-column: 1 / -1; }
+    .spotify-frame iframe { border-radius: 14px; min-height: 352px; }
+
+    .video-card { overflow: hidden; }
+    .video-card iframe { aspect-ratio: 16 / 9; }
+    .video-copy { padding: 19px 21px 22px; }
+    .video-copy h3 { margin: 0; font-size: 1.55rem; }
+    .video-copy p { margin: 7px 0 0; color: #bcc6bd; font-size: .93rem; }
+
+    .reel-card {
+      min-height: 350px;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      align-items: end;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: #111;
+    }
+    .reel-card img {
+      position: absolute;
+      inset: 0;
       height: 100%;
       object-fit: cover;
-      border-radius: 22px;
-      min-height: 290px;
+      opacity: .68;
+      transition: transform .4s ease, opacity .3s ease;
     }
-    .gallery img:first-child { aspect-ratio: 16 / 10; }
-    .gallery img:last-child { aspect-ratio: 4 / 5; }
+    .reel-card:hover img { transform: scale(1.025); opacity: .8; }
+    .reel-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 30%, rgba(0,0,0,.84));
+    }
+    .reel-copy {
+      position: relative;
+      z-index: 2;
+      padding: 24px;
+    }
+    .play {
+      display: inline-grid;
+      place-items: center;
+      width: 52px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #f7f1e8;
+      color: var(--ink);
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+    .reel-copy h3 { margin: 0; font-size: 1.8rem; }
+    .reel-copy p { margin: 6px 0 0; color: #d6ddd6; }
 
+    .platforms {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .platform-card {
+      padding: 20px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .platform-card:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+    .platform-card h4 { margin: 0; font-size: 1.25rem; }
+    .platform-card p { margin: 3px 0 0; color: #bac3bb; font-size: .88rem; }
+    .platform-arrow { font-size: 1.4rem; }
+
+    /* PROJECTS */
+    .projects { background: #e8dfd1; }
+    .project-stack { display: grid; gap: 24px; }
+    .project-card {
+      min-height: 530px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      border-radius: 34px;
+      background: rgba(255,255,255,.57);
+      border: 1px solid rgba(23,25,22,.09);
+      box-shadow: 0 18px 50px rgba(24,30,24,.08);
+    }
+    .project-card:nth-child(even) .project-image { order: 2; }
+    .project-image {
+      position: relative;
+      min-height: 430px;
+      background: #c9c0b3;
+    }
+    .project-image > img.main {
+      height: 100%;
+      object-fit: cover;
+    }
+    .project-logo {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      width: min(150px, 31%);
+      max-height: 150px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,.24));
+    }
+    .project-copy {
+      padding: clamp(32px, 6vw, 68px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-number {
+      color: var(--rose);
+      font-weight: 850;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-size: .72rem;
+    }
+    .project-copy h3 {
+      margin: 12px 0 15px;
+      font-size: clamp(2.6rem, 5vw, 4.9rem);
+      line-height: .92;
+      letter-spacing: -.052em;
+    }
+    .project-copy p { color: #4f534c; font-size: 1.03rem; margin: 0 0 16px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.46);
+      font-size: .78rem;
+      font-weight: 730;
+    }
+
+    /* STORY GALLERY */
+    .gallery-section { overflow: hidden; }
+    .story-rail {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(300px, 45vw);
+      gap: 18px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: inline mandatory;
+      padding: 3px max(19px, calc((100vw - 1180px)/2)) 26px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--forest) transparent;
+    }
+    .story-card {
+      scroll-snap-align: center;
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(23,25,22,.1);
+      border-radius: 27px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(24,30,24,.08);
+    }
+    .story-card img {
+      height: clamp(340px, 48vw, 610px);
+      object-fit: cover;
+    }
+    .story-card.wide img { object-position: center; }
+    .story-caption { padding: 20px 22px 23px; }
+    .story-caption h3 { margin: 0; font-size: 1.45rem; }
+    .story-caption p { margin: 6px 0 0; color: var(--muted); }
+    .scroll-note {
+      width: min(1180px, calc(100% - 38px));
+      margin: 0 auto 18px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* CONTACT */
     .contact-card {
       background: var(--gold);
       border-radius: 36px;
@@ -304,29 +465,54 @@
     }
     .footer-links { display: flex; flex-wrap: wrap; gap: 17px; }
 
+    @media (max-width: 980px) {
+      .brand { display: none; }
+      nav { justify-content: center; }
+      .nav-shell { max-width: 100%; overflow-x: auto; }
+      .nav-link { padding-inline: 13px; }
+      .hero { min-height: auto; }
+    }
+
     @media (max-width: 850px) {
-      .nav-links a:not(.button) { display: none; }
-      .hero, .about-grid, .contact-card, .section-head { grid-template-columns: 1fr; }
+      .hero, .section-head, .contact-card { grid-template-columns: 1fr; }
       .hero { padding-top: 38px; }
       .hero-image-wrap { width: min(540px, 92%); margin-inline: auto; }
       .stamp { left: -12px; }
       .section-head { gap: 16px; }
-      .link-grid { grid-template-columns: 1fr; }
-      .link-card { min-height: 135px; }
-      .gallery { grid-template-columns: 1fr; }
-      .gallery img { max-height: 520px; }
+      .listen-grid { grid-template-columns: 1fr; }
+      .spotify-frame, .platforms { grid-column: auto; }
+      .platforms { grid-template-columns: 1fr; }
+      .project-card { grid-template-columns: 1fr; }
+      .project-card:nth-child(even) .project-image { order: 0; }
+      .project-image { min-height: 450px; }
+      .story-rail { grid-auto-columns: minmax(290px, 82vw); }
       .contact-actions { align-items: flex-start; }
     }
 
-    @media (max-width: 520px) {
-      .wrap { width: min(100% - 24px, 1160px); }
-      nav { min-height: 66px; }
-      .nav-links { gap: 10px; }
-      .button.small { padding-inline: 14px; }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 24px, 1180px); }
+      header { overflow: hidden; }
+      nav { min-height: 67px; }
+      .nav-shell {
+        width: 100%;
+        justify-content: space-between;
+        border: 0;
+        background: transparent;
+        padding: 3px 0;
+        scrollbar-width: none;
+      }
+      .nav-shell::-webkit-scrollbar { display: none; }
+      .nav-link { min-height: 38px; padding-inline: 11px; font-size: .78rem; }
+      .nav-indicator { top: 3px; height: calc(100% - 6px); }
       h1 { font-size: clamp(3.55rem, 20vw, 5.3rem); }
-      section { padding: 66px 0; }
+      section { padding: 68px 0; }
       .stamp { width: 95px; border-width: 5px; font-size: .64rem; }
       .hero-image { border-radius: 43% 43% 18px 18px; }
+      .project-card { border-radius: 24px; }
+      .project-image { min-height: 360px; }
+      .project-copy { padding: 28px 24px 34px; }
+      .story-rail { padding-inline: 12px; }
+      .scroll-note { width: calc(100% - 24px); }
       .footer-inner { flex-direction: column; }
     }
 
@@ -337,27 +523,30 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#home">Skip to content</a>
 
   <header>
     <nav class="wrap" aria-label="Main navigation">
-      <a class="brand" href="#top">Cooper Morris Music</a>
-      <div class="nav-links">
-        <a href="#listen">Listen</a>
-        <a href="#about">About</a>
-        <a class="button small primary" href="#contact">Book Cooper</a>
+      <a class="brand" href="#home">Cooper Morris Music</a>
+      <div class="nav-shell" id="navShell">
+        <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
+        <a class="nav-link active" href="#home" data-section="home">Home</a>
+        <a class="nav-link" href="#listen" data-section="listen">Listen</a>
+        <a class="nav-link" href="#projects" data-section="projects">Projects</a>
+        <a class="nav-link" href="#gallery" data-section="gallery">Gallery</a>
+        <a class="nav-link" href="#contact" data-section="contact">Contact</a>
       </div>
     </nav>
   </header>
 
-  <main id="main">
-    <div id="top" class="hero wrap">
+  <main>
+    <div id="home" class="hero wrap" data-spy>
       <div>
-        <p class="eyebrow">Singer-songwriter · Eugene, Oregon</p>
+        <p class="eyebrow">Singer-songwriter · Producer · Eugene, Oregon</p>
         <h1>Cooper<br><span>Morris</span></h1>
-        <p class="hero-copy">Original music, live performance, and songs made to bring people together.</p>
+        <p class="hero-copy">Original music, self-produced recordings, and live performances built around connection, versatility, and a genuine love of making music with people.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#listen">Listen now</a>
+          <a class="button primary" href="#listen">Listen & watch</a>
           <a class="button secondary" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">Booking inquiry</a>
         </div>
       </div>
@@ -367,71 +556,207 @@
       </div>
     </div>
 
-    <section id="listen" class="listen">
+    <section id="listen" class="listen" data-spy>
       <div class="wrap">
         <div class="section-head">
           <div>
             <p class="eyebrow">Music & video</p>
-            <h2>Listen up.</h2>
+            <h2>Listen. Watch. Stay awhile.</h2>
           </div>
-          <p>Stream Cooper’s original releases, watch performance and music content, or explore the official YouTube music catalog.</p>
+          <p>Stream the full catalog, watch Cooper at the piano, hear Tree House Trio live, and follow along as new original recordings and performance videos are added.</p>
         </div>
 
-        <div class="spotify-frame">
-          <iframe
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/artist/6AYi6OT4Fbtsaiw4BuOyjr?utm_source=generator&theme=0"
-            height="352"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="Cooper Morris on Spotify"></iframe>
-        </div>
+        <div class="listen-grid">
+          <div class="spotify-frame">
+            <iframe
+              src="https://open.spotify.com/embed/artist/6AYi6OT4Fbtsaiw4BuOyjr?utm_source=generator&theme=0"
+              height="352"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Cooper Morris on Spotify"></iframe>
+          </div>
 
-        <div class="link-grid">
-          <a class="link-card" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
-            <span class="arrow" aria-hidden="true">↗</span>
-            <div><h3>YouTube</h3><p>Videos, performances, and music content</p></div>
+          <article class="video-card">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/0PpbfuhY7qU"
+              title="Cooper Morris performing Gnossienne No. 1 on piano"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <div class="video-copy">
+              <h3>Gnossienne No. 1</h3>
+              <p>A piano performance by Cooper, with more performance and studio videos to come.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/nZN8nnARNTU"
+              title="Tree House Trio performing Stuck in the Middle with You"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <div class="video-copy">
+              <h3>Tree House Trio live</h3>
+              <p>“Stuck in the Middle with You,” performed by Cooper, Jen, and Dakota.</p>
+            </div>
+          </article>
+
+          <a class="reel-card" href="https://www.facebook.com/reel/1050129284039085" target="_blank" rel="noopener noreferrer">
+            <img src="trio-crowd.webp" alt="A crowd watching Tree House Trio perform outdoors" />
+            <div class="reel-copy">
+              <span class="play" aria-hidden="true">▶</span>
+              <h3>See the room come alive</h3>
+              <p>Watch the camera move through the audience during a recent Tree House Trio performance.</p>
+            </div>
           </a>
-          <a class="link-card" href="https://www.youtube.com/channel/UCWCFUc6fd67h07dIiyAMkcg" target="_blank" rel="noopener noreferrer">
-            <span class="arrow" aria-hidden="true">↗</span>
-            <div><h3>Official Music</h3><p>Topic channel and distributed releases</p></div>
-          </a>
-          <a class="link-card" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">
-            <span class="arrow" aria-hidden="true">↗</span>
-            <div><h3>Facebook</h3><p>Updates, shows, and announcements</p></div>
-          </a>
+
+          <div class="platforms">
+            <a class="platform-card" href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">
+              <div><h4>YouTube</h4><p>Performances, videos, and music content</p></div><span class="platform-arrow">↗</span>
+            </a>
+            <a class="platform-card" href="https://www.youtube.com/channel/UCWCFUc6fd67h07dIiyAMkcg" target="_blank" rel="noopener noreferrer">
+              <div><h4>Official Music</h4><p>Distributed releases and topic channel</p></div><span class="platform-arrow">↗</span>
+            </a>
+            <a class="platform-card" href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">
+              <div><h4>Facebook</h4><p>Shows, clips, and announcements</p></div><span class="platform-arrow">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="projects" class="projects" data-spy>
       <div class="wrap">
-        <div class="about-grid">
-          <img class="about-photo" src="performance.webp" alt="Cooper Morris singing and playing acoustic guitar onstage" />
-          <div class="about-copy">
-            <p class="eyebrow">About Cooper</p>
-            <h2>Music with heart—and a little room to dance.</h2>
-            <p>Cooper Morris is a singer-songwriter and live musician based in Eugene, Oregon. He has performed at wineries, breweries, private events, and venues around the area since 2017.</p>
-            <p>His sets move through <strong>folk, blues, jazz, and pop</strong>, mixing familiar songs with original music. Cooper performs solo, as a duo with his sister Jen Sennett, and with local bands for events that call for a bigger sound.</p>
-            <a class="button secondary" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">Ask about a performance</a>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The work</p>
+            <h2>Four sides of the music.</h2>
           </div>
+          <p>From writing alone at the piano to a full weekend of live shows, each project brings out a different part of Cooper’s musical life.</p>
         </div>
 
-        <div class="gallery" aria-label="Performance photos">
-          <img src="band.webp" alt="Cooper Morris performing with a band on an outdoor stage" />
-          <img src="duo.webp" alt="Cooper Morris and Jen Sennett holding their instruments after a performance" />
+        <div class="project-stack">
+          <article class="project-card">
+            <div class="project-image">
+              <img class="main" src="solo-treehouse.webp" alt="Cooper Morris performing solo with an acoustic guitar in a tree house setting" />
+            </div>
+            <div class="project-copy">
+              <span class="project-number">01 · Solo artist</span>
+              <h3>Cooper Morris</h3>
+              <p>Cooper writes, records, performs, and produces his original music from the ground up. The solo project is where intimate piano pieces, singer-songwriter material, layered studio productions, and years of live performance all meet.</p>
+              <p>Onstage, the same project can move between acoustic guitar, piano, familiar songs, and originals—shaped to fit the room rather than forcing every show into one format.</p>
+              <div class="project-tags"><span class="tag">Songwriting</span><span class="tag">Recording</span><span class="tag">Self-production</span><span class="tag">Solo performance</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img class="main" src="duo.webp" alt="Cooper Morris and Jen Sennett posing with instruments after a performance" />
+            </div>
+            <div class="project-copy">
+              <span class="project-number">02 · The foundation</span>
+              <h3>Cooper & Jen</h3>
+              <p>The duo with Jen is the foundation underneath much of Cooper’s live music. Their shared history gives the performances an easy musical connection—built on voices that know how to meet, familiar arrangements, and the flexibility to make a set feel personal.</p>
+              <p>It is a warm, adaptable format for wineries, private events, listening rooms, and stages that call for something fuller than solo music without losing intimacy.</p>
+              <div class="project-tags"><span class="tag">Acoustic duo</span><span class="tag">Harmony</span><span class="tag">Events</span><span class="tag">Long-running collaboration</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img class="main" src="bow-alesong.webp" alt="Born of Wildfires performing outdoors at Alesong" />
+              <img class="project-logo" src="bow-logo.webp" alt="Born of Wildfires flame logo" />
+            </div>
+            <div class="project-copy">
+              <span class="project-number">03 · Full band</span>
+              <h3>Born of Wildfires</h3>
+              <p>Born of Wildfires expands the music into a full-band setting: bigger rhythm, more electric color, and the energy to carry across an outdoor stage or a busy room.</p>
+              <p>It is the project for performances that need the lift and momentum of a complete band while keeping the songs and voices at the center.</p>
+              <div class="project-tags"><span class="tag">Full band</span><span class="tag">Live energy</span><span class="tag">Outdoor stages</span><span class="tag">Electric sound</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img class="main" src="trio-posed.webp" alt="Cooper, Jen, and Dakota posing together as Tree House Trio" />
+              <img class="project-logo" src="treehouse-logo.webp" alt="Tree House Trio logo" />
+            </div>
+            <div class="project-copy">
+              <span class="project-number">04 · Current chapter</span>
+              <h3>Tree House Trio</h3>
+              <p>Tree House Trio brings Cooper, Jen, and Dakota together in a playful, flexible live group built around strong vocals, acoustic instruments, electric color, and clear chemistry.</p>
+              <p>The new trio has quickly become a major part of the calendar, with weekend bookings and performances that move naturally between close listening, dancing, laughter, and a crowd singing along.</p>
+              <div class="project-tags"><span class="tag">Three-part chemistry</span><span class="tag">Weekend shows</span><span class="tag">Audience connection</span><span class="tag">Acoustic & electric</span></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="gallery" class="gallery-section" data-spy>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Scenes from the work</p>
+            <h2>A life played live.</h2>
+          </div>
+          <p>Not just stage photos—a running story of outdoor rooms, unexpected venues, full tables, new groups, and the people who make each performance matter.</p>
+        </div>
+      </div>
+
+      <p class="scroll-note">Scroll sideways through the gallery →</p>
+      <div class="story-rail" aria-label="Scrollable performance gallery">
+        <article class="story-card">
+          <img src="trio-treehouse.webp" alt="Tree House Trio performing on a wooden platform among tall trees" />
+          <div class="story-caption"><h3>The tree-house stage</h3><p>A setting that helped give the trio its name: instruments, voices, and an audience gathered among the trees.</p></div>
+        </article>
+
+        <article class="story-card wide">
+          <img src="trio-crowd.webp" alt="A large outdoor audience watching Tree House Trio perform" />
+          <div class="story-caption"><h3>The view from the crowd</h3><p>A sunny performance with the trio at one end of the deck and a full audience settling in across the space.</p></div>
+        </article>
+
+        <article class="story-card">
+          <img src="trio-bennett.webp" alt="Tree House Trio performing together at Bennett" />
+          <div class="story-caption"><h3>Tree House Trio at Bennett</h3><p>Cooper, Jen, and Dakota sharing lead vocals and shifting the center of the arrangement from song to song.</p></div>
+        </article>
+
+        <article class="story-card wide">
+          <img src="trio-ocf.webp" alt="Tree House Trio performing at Oregon Country Fair" />
+          <div class="story-caption"><h3>Oregon Country Fair</h3><p>A stripped-back trio performance under an evening sky, surrounded by the particular magic of Fair.</p></div>
+        </article>
+
+        <article class="story-card">
+          <img src="trio-recent.webp" alt="Two recent Tree House Trio performances at Churchill Estates and Cottage Grove Public Market" />
+          <div class="story-caption"><h3>One trio, very different rooms</h3><p>Recent shows at Churchill Estates and the Cottage Grove Public Market—part of a fast-growing run of weekend performances.</p></div>
+        </article>
+
+        <article class="story-card wide">
+          <img src="bow-alesong.webp" alt="Born of Wildfires performing at Alesong" />
+          <div class="story-caption"><h3>Born of Wildfires at Alesong</h3><p>The full-band side of the work: drums, bass, electric guitar, and Cooper out front.</p></div>
+        </article>
+
+        <article class="story-card">
+          <img src="solo-treehouse.webp" alt="Cooper Morris performing a solo acoustic set among the trees" />
+          <div class="story-caption"><h3>Solo, but never disconnected</h3><p>An acoustic set built around the room—quiet enough to listen closely, open enough for people to gather around it.</p></div>
+        </article>
+
+        <article class="story-card">
+          <img src="trio-funny.webp" alt="Cooper and Dakota laughing while holding Jen up during a playful Tree House Trio photo" />
+          <div class="story-caption"><h3>The serious business of being a trio</h3><p>Not every moment needs a stage. The chemistry matters just as much between songs.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" data-spy>
       <div class="wrap">
         <div class="contact-card">
           <div>
             <p class="eyebrow">Booking & questions</p>
-            <h2>Let’s make some music.</h2>
-            <p>Planning an event, looking for live music, or just want to get in touch? Send a few details and Cooper will reply as soon as possible.</p>
+            <h2>Find the right sound for the room.</h2>
+            <p>Solo music, the duo, Tree House Trio, or a full-band performance—send the date, location, and kind of event, and Cooper will help match the project to it.</p>
           </div>
           <div class="contact-actions">
             <a class="button primary email" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">coopermorrismusic@gmail.com</a>
@@ -452,5 +777,43 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const navShell = document.getElementById('navShell');
+    const indicator = document.getElementById('navIndicator');
+    const links = [...document.querySelectorAll('.nav-link')];
+    const sections = [...document.querySelectorAll('[data-spy]')];
+
+    function moveIndicator(link) {
+      const shellRect = navShell.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      indicator.style.width = `${linkRect.width}px`;
+      indicator.style.transform = `translateX(${linkRect.left - shellRect.left - 4 + navShell.scrollLeft}px)`;
+      links.forEach(item => item.classList.toggle('active', item === link));
+    }
+
+    function setActive(id) {
+      const link = links.find(item => item.dataset.section === id);
+      if (!link) return;
+      moveIndicator(link);
+      link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible[0]) setActive(visible[0].target.id);
+    }, { rootMargin: '-22% 0px -58% 0px', threshold: [0, .12, .3, .55] });
+
+    sections.forEach(section => observer.observe(section));
+    links.forEach(link => link.addEventListener('click', () => setActive(link.dataset.section)));
+
+    window.addEventListener('load', () => moveIndicator(document.querySelector('.nav-link.active')));
+    window.addEventListener('resize', () => {
+      const active = document.querySelector('.nav-link.active');
+      if (active) moveIndicator(active);
+    });
+  </script>
 </body>
 </html>
