@@ -792,6 +792,18 @@
   </footer>
 
   <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    const navigationEntry = performance.getEntriesByType('navigation')[0];
+    if (navigationEntry && navigationEntry.type === 'reload') {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+      window.scrollTo(0, 0);
+      requestAnimationFrame(() => window.scrollTo(0, 0));
+      setTimeout(() => window.scrollTo(0, 0), 80);
+    }
+
     const navShell = document.getElementById('navShell');
     const indicator = document.getElementById('navIndicator');
     const links = [...document.querySelectorAll('.nav-link')];

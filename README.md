@@ -42,3 +42,8 @@ Keep every image in the same folder as `index.html`.
 - Less blank space around the gallery
 - Wider cards on desktop and mobile
 - Full image proportions remain visible
+
+## Version 2.5 refresh behavior
+
+- A browser refresh now returns the page to the top
+- Normal navigation buttons and section links still work
