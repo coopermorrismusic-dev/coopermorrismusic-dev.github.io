@@ -109,3 +109,10 @@ Keep every image in the same folder as `index.html`.
 
 - Complete standalone package containing every image used by the page
 - Updated the social-sharing preview to use the brighter hero portrait
+
+## Version 2.14
+
+- Removed the duplicated hero image from the photo journal
+- Added the newer solo close-up performance photo
+- Added the current Tree House Trio portrait
+- Kept the new Jen & Cooper and Born of Wildfires photos
