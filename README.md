@@ -92,3 +92,11 @@ Keep every image in the same folder as `index.html`.
 - Audio/video keeps playing while visitors browse the photos
 - Gallery arrows move vertically through the recent-photo stories
 - Navigation now labels the section Lounge
+
+## Version 2.12 — Combined Listen & Lounge
+
+- Removed the separate Listen and Lounge sections
+- Combined Spotify, videos, Facebook reel, photo journal, and platform links into one section
+- Navigation now has a single Listen destination
+- Added the Facebook reel as a player option
+- Kept the sticky player and photo-story browsing experience
