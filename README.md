@@ -93,10 +93,19 @@ Keep every image in the same folder as `index.html`.
 - Gallery arrows move vertically through the recent-photo stories
 - Navigation now labels the section Lounge
 
-## Version 2.12 — Combined Listen & Lounge
+## Version 2.13 — Rebuilt Combined Media Section
 
-- Removed the separate Listen and Lounge sections
-- Combined Spotify, videos, Facebook reel, photo journal, and platform links into one section
-- Navigation now has a single Listen destination
-- Added the Facebook reel as a player option
-- Kept the sticky player and photo-story browsing experience
+- Rebuilt the combined Listen and Lounge section from the last stable version
+- Fixed the broken lower-page markup
+- Organized the piano video under Cooper solo
+- Organized the full song and recent crowd clip under Tree House Trio
+- Added room for future videos
+- Added the brighter hero portrait
+- Added the Smitty's duo photo
+- Added the Bennett Born of Wildfires photo
+- Kept Cooper Morris as the clear center of the photo journal
+
+## Version 2.13.1
+
+- Complete standalone package containing every image used by the page
+- Updated the social-sharing preview to use the brighter hero portrait

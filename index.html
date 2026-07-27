@@ -1,17 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Music, videos, projects, live performance, and booking information for Eugene singer-songwriter and producer Cooper Morris." />
-  <meta name="theme-color" content="#f1ebdf" />
-  <meta property="og:title" content="Cooper Morris Music" />
-  <meta property="og:description" content="Original music, live projects, videos, and booking information for Cooper Morris." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="hero.webp" />
-  <title>Cooper Morris Music</title>
-  <link rel="icon" href="favicon.svg?v=6" type="image/svg+xml" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Music, videos, projects, live performance, and booking information for Eugene singer-songwriter and producer Cooper Morris." name="description"/>
+<meta content="#f1ebdf" name="theme-color"/>
+<meta content="Cooper Morris Music" property="og:title"/>
+<meta content="Original music, live projects, videos, and booking information for Cooper Morris." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="hero-bright.webp" property="og:image"/>
+<title>Cooper Morris Music</title>
+<link href="favicon.svg?v=6" rel="icon" type="image/svg+xml"/>
+<style>
     :root {
       --paper: #f3eee5;
       --paper-deep: #dfd5c6;
@@ -48,7 +49,7 @@
       position: absolute;
       left: -999px;
       top: 12px;
-      background: rgba(255,255,255,.18);
+      background: white;
       padding: 10px 14px;
       border-radius: 999px;
       z-index: 100;
@@ -230,6 +231,7 @@
       background: var(--forest-dark);
       color: #f7f1e8;
       position: relative;
+      overflow: hidden;
     }
     .listen::after {
       content: "";
@@ -462,9 +464,8 @@
       overflow: visible;
       padding-bottom: 76px;
       background:
-        radial-gradient(circle at 13% 20%, rgba(188,137,82,.13), transparent 27rem),
-        var(--forest-dark);
-      color: #f7f1e8;
+        radial-gradient(circle at 13% 20%, rgba(188,137,82,.14), transparent 27rem),
+        linear-gradient(180deg, #f3eee5 0%, #e9e0d3 100%);
     }
 
     .lounge-layout {
@@ -515,7 +516,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 7px;
       margin-bottom: 13px;
       padding: 5px;
@@ -584,9 +585,6 @@
       min-width: 0;
     }
 
-    .gallery-section .section-head p { color: #cad1ca; }
-    .gallery-section .eyebrow { color: #dcb17e; }
-
     .gallery-toolbar {
       position: sticky;
       top: 83px;
@@ -598,15 +596,15 @@
       justify-content: space-between;
       gap: 18px;
       border-radius: 999px;
-      background: rgba(29,48,38,.9);
+      background: rgba(243,238,229,.9);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,.11);
-      box-shadow: 0 10px 26px rgba(0,0,0,.18);
+      border: 1px solid rgba(23,25,22,.1);
+      box-shadow: 0 10px 26px rgba(24,30,24,.08);
     }
 
     .scroll-note {
       margin: 0;
-      color: #c8d1ca;
+      color: var(--muted);
       font-size: .9rem;
       font-weight: 720;
     }
@@ -619,10 +617,10 @@
     .gallery-button {
       width: 42px;
       height: 42px;
-      border: 1px solid rgba(255,255,255,.16);
+      border: 1px solid var(--line);
       border-radius: 50%;
-      background: rgba(255,255,255,.09);
-      color: white;
+      background: rgba(255,255,255,.84);
+      color: var(--ink);
       font-size: 1.12rem;
       cursor: pointer;
       transition: transform .2s ease, background .2s ease;
@@ -674,27 +672,6 @@
       max-width: 590px;
       color: rgba(255,255,255,.86);
       font-size: 1rem;
-    }
-
-    .lounge-links {
-      margin-top: 58px;
-      padding-top: 38px;
-      border-top: 1px solid rgba(255,255,255,.12);
-    }
-
-    .lounge-links > div:first-child {
-      margin-bottom: 20px;
-    }
-
-    .lounge-links h3 {
-      margin: 0;
-      font-size: clamp(2.2rem, 4.5vw, 4.5rem);
-      line-height: .95;
-      letter-spacing: -.05em;
-    }
-
-    .lounge-links .platforms {
-      grid-template-columns: repeat(2, 1fr);
     }
 
     /* CONTACT */
@@ -848,7 +825,7 @@
       .project-card { border-radius: 24px; }
       .project-image { min-height: 360px; }
       .project-copy { padding: 28px 24px 34px; }
-      .media-tabs { grid-template-columns: repeat(2, 1fr); border-radius: 20px; }
+      .media-tabs { grid-template-columns: 1fr; border-radius: 20px; }
       .media-tab { border-radius: 15px; }
       .lounge-player { padding: 14px; border-radius: 23px; }
       .media-stage { min-height: 352px; }
@@ -863,286 +840,639 @@
       html { scroll-behavior: auto; }
       * { transition: none !important; }
     }
+  
+    /* Combined Listen + Media Lounge */
+    .explore-section {
+      overflow: visible;
+      background:
+        radial-gradient(circle at 90% 4%, rgba(255,255,255,.055), transparent 31rem),
+        var(--forest-dark);
+      color: #f7f1e8;
+    }
+
+    .explore-heading p { color: #cad1ca; }
+    .explore-heading .eyebrow { color: #dcb17e; }
+
+    .explore-layout {
+      display: grid;
+      grid-template-columns: minmax(340px, .82fr) minmax(0, 1.18fr);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: start;
+    }
+
+    .explore-media {
+      position: sticky;
+      top: 94px;
+      align-self: start;
+      min-width: 0;
+    }
+
+    .explore-player-card {
+      padding: 17px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.065);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 24px 65px rgba(0,0,0,.2);
+    }
+
+    .explore-label {
+      margin: 0 3px 11px;
+      color: #dcb17e;
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
+
+    .explore-stage {
+      min-height: 352px;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #111;
+      border: 1px solid rgba(255,255,255,.09);
+    }
+
+    .explore-stage iframe {
+      width: 100%;
+      display: block;
+      border: 0;
+    }
+
+    .explore-stage.video-stage {
+      min-height: 0;
+      aspect-ratio: 16 / 9;
+    }
+
+    .explore-stage.video-stage iframe {
+      height: 100%;
+    }
+
+    .explore-player-note {
+      margin: 13px 4px 2px;
+      color: #bcc7bf;
+      font-size: .83rem;
+      line-height: 1.45;
+    }
+
+    .media-library {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .media-choice {
+      min-height: 126px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 19px;
+      background: rgba(255,255,255,.045);
+      color: #f7f1e8;
+      font: inherit;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .media-choice:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.085);
+    }
+
+    .media-choice.active {
+      background: #f7f1e8;
+      color: var(--ink);
+      border-color: #f7f1e8;
+      box-shadow: 0 13px 30px rgba(0,0,0,.16);
+    }
+
+    .choice-type {
+      display: block;
+      margin-bottom: 5px;
+      color: #dcb17e;
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
+
+    .media-choice.active .choice-type { color: var(--rose); }
+
+    .media-choice strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      line-height: 1.08;
+    }
+
+    .media-choice > span:last-child {
+      margin-top: 7px;
+      color: #bfc8c1;
+      font-size: .78rem;
+      line-height: 1.35;
+    }
+
+    .media-choice.active > span:last-child { color: #5b6058; }
+
+    .future-media-note {
+      margin-top: 10px;
+      padding: 13px 15px;
+      display: grid;
+      gap: 2px;
+      border-radius: 16px;
+      color: #c3cdc5;
+      background: rgba(255,255,255,.035);
+      border: 1px dashed rgba(255,255,255,.14);
+      font-size: .8rem;
+    }
+
+    .future-media-note strong { color: white; }
+
+    .explore-platforms {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.11);
+    }
+
+    .explore-platforms .platforms {
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .explore-platforms .platform-brand {
+      min-height: 150px;
+      grid-template-columns: 50px 1fr auto;
+      padding: 17px;
+      gap: 12px;
+    }
+
+    .explore-platforms .platform-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .explore-platforms .platform-card h4 { font-size: 1.18rem; }
+    .explore-platforms .platform-card p { font-size: .77rem; }
+
+    .photo-journal { min-width: 0; }
+
+    .journal-toolbar {
+      position: sticky;
+      top: 83px;
+      z-index: 5;
+      margin-bottom: 15px;
+      padding: 12px 13px 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      border-radius: 999px;
+      background: rgba(29,48,38,.9);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.11);
+      box-shadow: 0 12px 30px rgba(0,0,0,.16);
+    }
+
+    .journal-toolbar strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.22rem;
+      line-height: 1;
+    }
+
+    .journal-controls { display: flex; gap: 8px; }
+
+    .journal-button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+      background: rgba(255,255,255,.09);
+      color: white;
+      font-size: 1.12rem;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .journal-button:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.18);
+    }
+
+    .story-feed {
+      display: grid;
+      gap: 20px;
+    }
+
+    .story-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 29px;
+      background: #1a211c;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 20px 52px rgba(0,0,0,.18);
+      scroll-margin-top: 145px;
+    }
+
+    .story-card img {
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      max-height: none;
+      display: block;
+      object-fit: initial;
+      background: transparent;
+    }
+
+    .story-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 100px 28px 25px;
+      color: white;
+      background: linear-gradient(transparent, rgba(8,10,8,.9));
+    }
+
+    .story-caption h3 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2.4vw, 2.15rem);
+      text-shadow: 0 2px 13px rgba(0,0,0,.3);
+    }
+
+    .story-caption p {
+      margin: 7px 0 0;
+      max-width: 620px;
+      color: rgba(255,255,255,.86);
+      font-size: .96rem;
+    }
+
+    @media (max-width: 900px) {
+      .explore-layout { grid-template-columns: 1fr; }
+      .explore-media { position: relative; top: auto; }
+      .journal-toolbar { top: 78px; }
+    }
+
+    @media (max-width: 600px) {
+      .media-library { grid-template-columns: 1fr; }
+      .explore-player-card { padding: 13px; border-radius: 22px; }
+      .explore-stage { min-height: 352px; }
+      .explore-platforms .platforms { grid-template-columns: 1fr; }
+      .journal-toolbar { top: 71px; border-radius: 21px; }
+      .story-feed { gap: 14px; }
+      .story-card { border-radius: 22px; }
+      .story-caption { padding: 78px 19px 19px; }
+    }
+
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#home">Skip to content</a>
+<a class="skip-link" href="#home">Skip to content</a>
+<header>
+<nav aria-label="Main navigation" class="wrap">
+<a class="brand" href="#home">Cooper Morris Music</a>
+<div class="nav-shell" id="navShell">
+<span aria-hidden="true" class="nav-indicator" id="navIndicator"></span>
+<a class="nav-link active" data-section="home" href="#home">Home</a>
+<a class="nav-link" data-section="listen" href="#listen">Listen</a>
+<a class="nav-link" data-section="projects" href="#projects">Projects</a>
 
-  <header>
-    <nav class="wrap" aria-label="Main navigation">
-      <a class="brand" href="#home">Cooper Morris Music</a>
-      <div class="nav-shell" id="navShell">
-        <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
-        <a class="nav-link active" href="#home" data-section="home">Home</a>
-        <a class="nav-link" href="#listen" data-section="listen">Listen</a>
-        <a class="nav-link" href="#projects" data-section="projects">Projects</a>
-        <a class="nav-link" href="#contact" data-section="contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+<a class="nav-link" data-section="contact" href="#contact">Contact</a>
+</div>
+</nav>
+</header>
+<main>
+<div class="hero wrap" data-spy="" id="home">
+<div>
+<p class="eyebrow">Singer-songwriter · Producer · Lane County, Oregon</p>
+<h1>Cooper<br/><span>Morris</span></h1>
+<p class="hero-copy">Original music, self-produced recordings, and live performances built around connection, versatility, and a genuine love of making music with people.</p>
+<div class="hero-actions">
+<a class="button primary" href="#listen">Listen &amp; watch</a>
+<a class="button secondary" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">Booking inquiry</a>
+</div>
+</div>
+<div class="hero-image-wrap">
+<img alt="Cooper Morris seated outdoors with an acoustic guitar" class="hero-image" src="hero-bright.webp"/>
+<div aria-hidden="true" class="stamp">Live music<br/>since 2017</div>
+</div>
+</div>
+<section class="listen explore-section" data-spy="" id="listen">
+<div class="wrap">
+<div class="section-head explore-heading">
+<div>
+<p class="eyebrow">Music, video &amp; recent photos</p>
+<h2>Listen. Watch. Stay awhile.</h2>
+</div>
+<p>Start Spotify or a performance, then explore Cooper’s solo work, collaborations, and recent shows while the music keeps playing beside you.</p>
+</div>
+<div class="explore-layout">
+<aside aria-label="Music and video player" class="explore-media">
+<div class="explore-player-card">
+<p class="explore-label">Now playing</p>
+<div class="explore-stage" id="mediaStage">
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="352" loading="lazy" src="https://open.spotify.com/embed/artist/6AYi6OT4Fbtsaiw4BuOyjr?utm_source=generator&amp;theme=0" title="Cooper Morris on Spotify"></iframe>
+</div>
+<p class="explore-player-note">Choose something below, press play, and keep browsing. This player stays beside the photo journal on larger screens.</p>
+</div>
+<div aria-label="Available music and videos" class="media-library" role="tablist">
+<button aria-selected="true" class="media-choice active" data-media="spotify" role="tab" type="button">
+<span class="choice-type">Released music</span>
+<strong>Spotify catalog</strong>
+<span>Preview and stream Cooper’s released songs</span>
+</button>
+<button aria-selected="false" class="media-choice" data-media="piano" role="tab" type="button">
+<span class="choice-type">Cooper Morris · Solo</span>
+<strong>Gnossienne No. 1</strong>
+<span>Piano performance</span>
+</button>
+<button aria-selected="false" class="media-choice" data-media="trio" role="tab" type="button">
+<span class="choice-type">Tree House Trio</span>
+<strong>Full live song</strong>
+<span>“Stuck in the Middle with You”</span>
+</button>
+<button aria-selected="false" class="media-choice" data-media="reel" role="tab" type="button">
+<span class="choice-type">Tree House Trio</span>
+<strong>Recent crowd clip</strong>
+<span>A quick look through the audience</span>
+</button>
+</div>
+<div class="future-media-note">
+<strong>More coming.</strong>
+<span>This library is ready for more solo performances, original-song videos, and clips from each project.</span>
+</div>
+<div class="explore-platforms">
+<p class="explore-label">Continue elsewhere</p>
+<div class="platforms">
+<a class="platform-card platform-brand spotify-card" href="https://open.spotify.com/artist/6AYi6OT4Fbtsaiw4BuOyjr" rel="noopener noreferrer" target="_blank">
+<div aria-hidden="true" class="platform-icon">
+<svg viewbox="0 0 64 64">
+<circle cx="32" cy="32" fill="currentColor" r="28"></circle>
+<path d="M18 25c10-3 22-2 31 2M20 33c8-2 18-1 26 2M22 41c7-1 14 0 20 2" fill="none" stroke="white" stroke-linecap="round" stroke-width="4.4"></path>
+</svg>
+</div>
+<div class="platform-copy">
+<span class="platform-kicker">Released music</span>
+<h4>Spotify</h4>
+<p>Stream Cooper’s released catalog and follow the artist page</p>
+</div>
+<span class="platform-arrow">↗</span>
+</a>
+<a class="platform-card platform-brand youtube-card" href="https://www.youtube.com/@coopermmusic" rel="noopener noreferrer" target="_blank">
+<div aria-hidden="true" class="platform-icon">
+<svg viewbox="0 0 64 64">
+<rect fill="currentColor" height="36" rx="12" width="54" x="5" y="14"></rect>
+<path d="M27 23.5 43 32 27 40.5Z" fill="white"></path>
+</svg>
+</div>
+<div class="platform-copy">
+<span class="platform-kicker">Videos &amp; content</span>
+<h4>YouTube</h4>
+<p>Performances, piano videos, and music-related content</p>
+</div>
+<span class="platform-arrow">↗</span>
+</a>
+<a class="platform-card platform-brand music-card" href="https://www.youtube.com/channel/UCWCFUc6fd67h07dIiyAMkcg" rel="noopener noreferrer" target="_blank">
+<div aria-hidden="true" class="platform-icon">
+<svg viewbox="0 0 64 64">
+<circle cx="32" cy="32" fill="currentColor" r="28"></circle>
+<path d="M38 17v25.5a8 8 0 1 1-4-7.1V23l15-3v17.5a8 8 0 1 1-4-7.1V17.6L38 19z" fill="white"></path>
+</svg>
+</div>
+<div class="platform-copy">
+<span class="platform-kicker">Released song streams</span>
+<h4>YouTube Music Releases</h4>
+<p>Official DistroKid uploads and auto-generated song streams</p>
+</div>
+<span class="platform-arrow">↗</span>
+</a>
+<a class="platform-card platform-brand facebook-card" href="https://www.facebook.com/coopermorrismusic/" rel="noopener noreferrer" target="_blank">
+<div aria-hidden="true" class="platform-icon">
+<svg viewbox="0 0 64 64">
+<circle cx="32" cy="32" fill="currentColor" r="29"></circle>
+<path d="M36.5 52V34h6l1-7h-7v-4.5c0-2 1-3.5 3.8-3.5H44v-6.2c-1.4-.2-3.3-.4-5.5-.4-5.5 0-9.3 3.4-9.3 9.6v5H23v7h6.2v18z" fill="white"></path>
+</svg>
+</div>
+<div class="platform-copy">
+<span class="platform-kicker">Shows &amp; updates</span>
+<h4>Facebook</h4>
+<p>Booking updates, live clips, announcements, and recent shows</p>
+</div>
+<span class="platform-arrow">↗</span>
+</a>
+</div>
+</div>
+</aside>
+<div class="photo-journal">
+<div class="journal-toolbar">
+<div>
+<span class="choice-type">Recent work</span>
+<strong>Photo journal</strong>
+</div>
+<div aria-label="Photo journal controls" class="journal-controls">
+<button aria-label="Previous photo" class="journal-button" id="galleryPrev" type="button">↑</button>
+<button aria-label="Next photo" class="journal-button" id="galleryNext" type="button">↓</button>
+</div>
+</div>
+<div class="story-feed" id="storyFeed">
+<article class="story-card">
+<img alt="Cooper Morris seated outdoors holding an acoustic guitar" src="hero-bright.webp"/>
+<div class="story-caption">
+<h3>Cooper Morris</h3>
+<p>Songwriter, recording artist, self-producer, multi-instrumentalist, and the center of everything collected here.</p>
+</div>
+</article>
+<article class="story-card">
+<img alt="Jen Sennett and Cooper Morris singing together at Smitty's in Veneta" src="duo-smittys.webp"/>
+<div class="story-caption">
+<h3>Jen Sennett &amp; Cooper Morris</h3>
+<p>Years of shared music and sibling chemistry, captured in a close harmony moment at Smitty’s in Veneta.</p>
+</div>
+</article>
+<article class="story-card">
+<img alt="Born of Wildfires performing at Bennett Vineyards" src="bow-bennett.webp"/>
+<div class="story-caption">
+<h3>Born of Wildfires at Bennett</h3>
+<p>The full-band side of Cooper’s work during Fourth of July weekend at Bennett Vineyards.</p>
+</div>
+</article>
+<article class="story-card">
+<img alt="Tree House Trio performing on a wooden platform among tall trees" src="trio-treehouse.webp"/>
+<div class="story-caption">
+<h3>The tree-house stage</h3>
+<p>A setting that helped give the trio its name: instruments, voices, and an audience gathered among the trees.</p>
+</div>
+</article>
+<article class="story-card">
+<img alt="Tree House Trio performing together in warm evening light" src="trio-performing-new.webp"/>
+<div class="story-caption">
+<h3>A trio finding its rhythm</h3>
+<p>Cooper, Jen, and Dakota settling into the chemistry that has quickly filled the weekends.</p>
+</div>
+</article>
+<article class="story-card">
+<img alt="A large outdoor audience watching Tree House Trio perform" src="trio-crowd.webp"/>
+<div class="story-caption">
+<h3>The view from the crowd</h3>
+<p>A sunny performance with the trio at one end of the deck and a full audience settling in across the space.</p>
+</div>
+</article>
+<article class="story-card">
+<img alt="Tree House Trio performing together at Bennett" src="trio-bennett.webp"/>
+<div class="story-caption">
+<h3>Tree House Trio at Bennett</h3>
+<p>Cooper, Jen, and Dakota sharing lead vocals and shifting the center of the arrangement from song to song.</p>
+</div>
+</article>
+<article class="story-card">
+<img alt="Tree House Trio performing at Oregon Country Fair" src="trio-ocf.webp"/>
+<div class="story-caption">
+<h3>Oregon Country Fair</h3>
+<p>A stripped-back trio performance under an evening sky, surrounded by the particular magic of Fair.</p>
+</div>
+</article>
+<article class="story-card">
+<img alt="Cooper and Dakota laughing while holding Jen up during a playful Tree House Trio photo" src="trio-funny.webp"/>
+<div class="story-caption">
+<h3>The serious business of being a trio</h3>
+<p>Not every moment needs a stage. The chemistry matters just as much between songs.</p>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="projects" data-spy="" id="projects">
+<div class="wrap">
+<div class="section-head">
+<div>
+<p class="eyebrow">The work</p>
+<h2>Four sides of the music.</h2>
+</div>
+<p>From writing alone at the piano to a full weekend of live shows, each project brings out a different part of Cooper’s musical life.</p>
+</div>
+<div class="project-stack">
+<article class="project-card">
+<div class="project-image">
+<img alt="Cooper Morris performing solo with an acoustic guitar during a Tree House Trio set" class="main" src="solo-closeup.webp"/>
+</div>
+<div class="project-copy">
+<span class="project-number">01 · Solo artist</span>
+<h3>Cooper Morris</h3>
+<p>Cooper writes, records, performs, and produces his original music from the ground up. The solo project is where intimate piano pieces, singer-songwriter material, layered studio productions, and years of live performance all meet.</p>
+<p>Onstage, the same project can move between acoustic guitar, piano, familiar songs, and originals—shaped to fit the room rather than forcing every show into one format.</p>
+<div class="project-tags"><span class="tag">Songwriting</span><span class="tag">Recording</span><span class="tag">Self-production</span><span class="tag">Solo performance</span></div>
+</div>
+</article>
+<article class="project-card">
+<div class="project-image">
+<img alt="Jen Sennett and Cooper Morris singing together at Smitty's in Veneta" class="main" src="duo-smittys.webp"/>
+</div>
+<div class="project-copy">
+<span class="project-number">02 · The foundation</span>
+<h3>Cooper &amp; Jen</h3>
+<p>The duo with Jen is the foundation underneath much of Cooper’s live music. Their shared history gives the performances an easy musical connection—built on voices that know how to meet, familiar arrangements, and the flexibility to make a set feel personal.</p>
+<p>It is a warm, adaptable format for wineries, private events, listening rooms, and stages that call for something fuller than solo music without losing intimacy.</p>
+<div class="project-tags"><span class="tag">Acoustic duo</span><span class="tag">Harmony</span><span class="tag">Events</span><span class="tag">Long-running collaboration</span></div>
+</div>
+</article>
+<article class="project-card">
+<div class="project-image">
+<img alt="Born of Wildfires performing at Bennett Vineyards over Fourth of July weekend" class="main" src="bow-bennett.webp"/>
+</div>
+<div class="project-copy">
+<img alt="Born of Wildfires flame logo" class="project-logo-inline" src="bow-logo.webp"/>
+<span class="project-number">03 · Full band</span>
+<h3>Born of Wildfires</h3>
+<p>Born of Wildfires expands the music into a full-band setting: bigger rhythm, more electric color, and the energy to carry across an outdoor stage or a busy room.</p>
+<p>It is the project for performances that need the lift and momentum of a complete band while keeping the songs and voices at the center.</p>
+<div class="project-tags"><span class="tag">Full band</span><span class="tag">Live energy</span><span class="tag">Outdoor stages</span><span class="tag">Electric sound</span></div>
+</div>
+</article>
+<article class="project-card">
+<div class="project-image">
+<img alt="Cooper, Jen, and Dakota posing together after a Tree House Trio performance" class="main" src="trio-current.webp"/>
+</div>
+<div class="project-copy">
+<img alt="Tree House Trio logo" class="project-logo-inline treehouse-inline" src="treehouse-logo.webp"/>
+<span class="project-number">04 · Current chapter</span>
+<h3>Tree House Trio</h3>
+<p>Tree House Trio brings Cooper, Jen, and Dakota together in a playful, flexible live group built around strong vocals, acoustic instruments, electric color, and clear chemistry.</p>
+<p>The new trio has quickly become a major part of the calendar, with weekend bookings and performances that move naturally between close listening, dancing, laughter, and a crowd singing along.</p>
+<div class="project-tags"><span class="tag">Three-part chemistry</span><span class="tag">Weekend shows</span><span class="tag">Audience connection</span><span class="tag">Acoustic &amp; electric</span></div>
+</div>
+</article>
+</div>
+</div>
+</section>
 
-  <main>
-    <div id="home" class="hero wrap" data-spy>
-      <div>
-        <p class="eyebrow">Singer-songwriter · Producer · Lane County, Oregon</p>
-        <h1>Cooper<br><span>Morris</span></h1>
-        <p class="hero-copy">Original music, self-produced recordings, and live performances built around connection, versatility, and a genuine love of making music with people.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#listen">Listen & watch</a>
-          <a class="button secondary" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">Booking inquiry</a>
-        </div>
-      </div>
-      <div class="hero-image-wrap">
-        <img class="hero-image" src="hero.webp" alt="Cooper Morris seated outdoors with an acoustic guitar" />
-        <div class="stamp" aria-hidden="true">Live music<br>since 2017</div>
-      </div>
-    </div>
-
-    <section id="projects" class="projects" data-spy>
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">The work</p>
-            <h2>Four sides of the music.</h2>
-          </div>
-          <p>From writing alone at the piano to a full weekend of live shows, each project brings out a different part of Cooper’s musical life.</p>
-        </div>
-
-        <div class="project-stack">
-          <article class="project-card">
-            <div class="project-image">
-              <img class="main" src="solo-closeup.webp" alt="Cooper Morris performing solo with an acoustic guitar during a Tree House Trio set" />
-            </div>
-            <div class="project-copy">
-              <span class="project-number">01 · Solo artist</span>
-              <h3>Cooper Morris</h3>
-              <p>Cooper writes, records, performs, and produces his original music from the ground up. The solo project is where intimate piano pieces, singer-songwriter material, layered studio productions, and years of live performance all meet.</p>
-              <p>Onstage, the same project can move between acoustic guitar, piano, familiar songs, and originals—shaped to fit the room rather than forcing every show into one format.</p>
-              <div class="project-tags"><span class="tag">Songwriting</span><span class="tag">Recording</span><span class="tag">Self-production</span><span class="tag">Solo performance</span></div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">
-              <img class="main" src="duo.webp" alt="Cooper Morris and Jen Sennett posing with instruments after a performance" />
-            </div>
-            <div class="project-copy">
-              <span class="project-number">02 · The foundation</span>
-              <h3>Cooper & Jen</h3>
-              <p>The duo with Jen is the foundation underneath much of Cooper’s live music. Their shared history gives the performances an easy musical connection—built on voices that know how to meet, familiar arrangements, and the flexibility to make a set feel personal.</p>
-              <p>It is a warm, adaptable format for wineries, private events, listening rooms, and stages that call for something fuller than solo music without losing intimacy.</p>
-              <div class="project-tags"><span class="tag">Acoustic duo</span><span class="tag">Harmony</span><span class="tag">Events</span><span class="tag">Long-running collaboration</span></div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">
-              <img class="main" src="bow-alesong.webp" alt="Born of Wildfires performing outdoors at Alesong" />
-            </div>
-            <div class="project-copy">
-              <img class="project-logo-inline" src="bow-logo.webp" alt="Born of Wildfires flame logo" />
-              <span class="project-number">03 · Full band</span>
-              <h3>Born of Wildfires</h3>
-              <p>Born of Wildfires expands the music into a full-band setting: bigger rhythm, more electric color, and the energy to carry across an outdoor stage or a busy room.</p>
-              <p>It is the project for performances that need the lift and momentum of a complete band while keeping the songs and voices at the center.</p>
-              <div class="project-tags"><span class="tag">Full band</span><span class="tag">Live energy</span><span class="tag">Outdoor stages</span><span class="tag">Electric sound</span></div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">
-              <img class="main" src="trio-current.webp" alt="Cooper, Jen, and Dakota posing together after a Tree House Trio performance" />
-            </div>
-            <div class="project-copy">
-              <img class="project-logo-inline treehouse-inline" src="treehouse-logo.webp" alt="Tree House Trio logo" />
-              <span class="project-number">04 · Current chapter</span>
-              <h3>Tree House Trio</h3>
-              <p>Tree House Trio brings Cooper, Jen, and Dakota together in a playful, flexible live group built around strong vocals, acoustic instruments, electric color, and clear chemistry.</p>
-              <p>The new trio has quickly become a major part of the calendar, with weekend bookings and performances that move naturally between close listening, dancing, laughter, and a crowd singing along.</p>
-              <div class="project-tags"><span class="tag">Three-part chemistry</span><span class="tag">Weekend shows</span><span class="tag">Audience connection</span><span class="tag">Acoustic & electric</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="listen" class="listen gallery-section" data-spy>
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Music, video & recent photos</p>
-            <h2>Listen. Watch. Stay awhile.</h2>
-          </div>
-          <p>Start Spotify or a performance, then explore recent shows and photographs while the music keeps playing beside you.</p>
-        </div>
-
-        <div class="lounge-layout">
-          <aside class="lounge-player" aria-label="Media player">
-            <p class="lounge-label">Choose what to play</p>
-            <div class="media-tabs" role="tablist" aria-label="Media choices">
-              <button class="media-tab active" type="button" role="tab" aria-selected="true" data-media="spotify">Spotify</button>
-              <button class="media-tab" type="button" role="tab" aria-selected="false" data-media="piano">Piano</button>
-              <button class="media-tab" type="button" role="tab" aria-selected="false" data-media="trio">Trio</button>
-              <button class="media-tab" type="button" role="tab" aria-selected="false" data-media="reel">Recent Reel</button>
-            </div>
-
-            <div class="media-stage" id="mediaStage">
-              <iframe
-                src="https://open.spotify.com/embed/artist/6AYi6OT4Fbtsaiw4BuOyjr?utm_source=generator&theme=0"
-                height="352"
-                allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                title="Cooper Morris on Spotify"></iframe>
-            </div>
-
-            <p class="lounge-note">Press play, then scroll through the photo journal. On desktop, the player stays beside the gallery; on mobile, playback continues as you move down the page.</p>
-          </aside>
-
-          <div class="lounge-gallery">
-            <div class="gallery-toolbar">
-              <p class="scroll-note">Recent photos and stories</p>
-              <div class="gallery-buttons" aria-label="Photo journal controls">
-                <button class="gallery-button" id="galleryPrev" type="button" aria-label="Previous photo">↑</button>
-                <button class="gallery-button" id="galleryNext" type="button" aria-label="Next photo">↓</button>
-              </div>
-            </div>
-
-            <div class="story-feed" id="storyFeed" aria-label="Performance photo journal">
-              <article class="story-card">
-                <img src="trio-treehouse.webp" alt="Tree House Trio performing on a wooden platform among tall trees" />
-                <div class="story-caption"><h3>The tree-house stage</h3><p>A setting that helped give the trio its name: instruments, voices, and an audience gathered among the trees.</p></div>
-              </article>
-
-              <article class="story-card">
-                <img src="trio-performing-new.webp" alt="Tree House Trio performing together in warm evening light" />
-                <div class="story-caption"><h3>A trio finding its rhythm</h3><p>A warm evening set with Cooper, Jen, and Dakota settling into the chemistry that has quickly filled the weekends.</p></div>
-              </article>
-
-              <article class="story-card">
-                <img src="trio-crowd.webp" alt="A large outdoor audience watching Tree House Trio perform" />
-                <div class="story-caption"><h3>The view from the crowd</h3><p>A sunny performance with the trio at one end of the deck and a full audience settling in across the space.</p></div>
-              </article>
-
-              <article class="story-card">
-                <img src="trio-bennett.webp" alt="Tree House Trio performing together at Bennett" />
-                <div class="story-caption"><h3>Tree House Trio at Bennett</h3><p>Cooper, Jen, and Dakota sharing lead vocals and shifting the center of the arrangement from song to song.</p></div>
-              </article>
-
-              <article class="story-card">
-                <img src="trio-ocf.webp" alt="Tree House Trio performing at Oregon Country Fair" />
-                <div class="story-caption"><h3>Oregon Country Fair</h3><p>A stripped-back trio performance under an evening sky, surrounded by the particular magic of Fair.</p></div>
-              </article>
-
-              <article class="story-card">
-                <img src="bow-alesong.webp" alt="Born of Wildfires performing at Alesong" />
-                <div class="story-caption"><h3>Born of Wildfires at Alesong</h3><p>The full-band side of the work: drums, bass, electric guitar, and Cooper out front.</p></div>
-              </article>
-
-              <article class="story-card">
-                <img src="solo-treehouse.webp" alt="Cooper Morris performing a solo acoustic set among the trees" />
-                <div class="story-caption"><h3>Solo, but never disconnected</h3><p>An acoustic set built around the room—quiet enough to listen closely, open enough for people to gather around it.</p></div>
-              </article>
-
-              <article class="story-card">
-                <img src="trio-funny.webp" alt="Cooper and Dakota laughing while holding Jen up during a playful Tree House Trio photo" />
-                <div class="story-caption"><h3>The serious business of being a trio</h3><p>Not every moment needs a stage. The chemistry matters just as much between songs.</p></div>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <div class="lounge-links">
-          <div>
-            <p class="eyebrow">Keep listening</p>
-            <h3>Find Cooper online.</h3>
-          </div>
-          <div class="platforms">
-            <a class="platform-card platform-brand spotify-card" href="https://open.spotify.com/artist/6AYi6OT4Fbtsaiw4BuOyjr" target="_blank" rel="noopener noreferrer">
-              <div class="platform-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64">
-                  <circle cx="32" cy="32" r="28" fill="currentColor"/>
-                  <path d="M18 25c10-3 22-2 31 2M20 33c8-2 18-1 26 2M22 41c7-1 14 0 20 2"
-                        fill="none" stroke="white" stroke-width="4.4" stroke-linecap="round"/>
-                </svg>
-              </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" data-spy>
-      <div class="wrap">
-        <div class="contact-card">
-          <div class="contact-copy">
-            <p class="eyebrow">Booking & questions</p>
-            <h2>Find the right sound for the room.</h2>
-            <p>Solo music, the duo, Tree House Trio, or a full-band performance—send the date, location, and kind of event, and Cooper will help match the project to it.</p>
-            <div class="contact-direct">
-              <a href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">coopermorrismusic@gmail.com</a>
-              <a href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">Message on Facebook ↗</a>
-            </div>
-          </div>
-
-          <form class="booking-form" id="bookingForm">
-            <div class="form-row">
-              <label>
+<section data-spy="" id="contact">
+<div class="wrap">
+<div class="contact-card">
+<div class="contact-copy">
+<p class="eyebrow">Booking &amp; questions</p>
+<h2>Find the right sound for the room.</h2>
+<p>Solo music, the duo, Tree House Trio, or a full-band performance—send the date, location, and kind of event, and Cooper will help match the project to it.</p>
+<div class="contact-direct">
+<a href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">coopermorrismusic@gmail.com</a>
+<a href="https://www.facebook.com/coopermorrismusic/" rel="noopener noreferrer" target="_blank">Message on Facebook ↗</a>
+</div>
+</div>
+<form class="booking-form" id="bookingForm">
+<div class="form-row">
+<label>
                 Your name
-                <input type="text" name="name" autocomplete="name" required>
-              </label>
-              <label>
+                <input autocomplete="name" name="name" required="" type="text"/>
+</label>
+<label>
                 Your email
-                <input type="email" name="email" autocomplete="email" required>
-              </label>
-            </div>
-
-            <div class="form-row">
-              <label>
+                <input autocomplete="email" name="email" required="" type="email"/>
+</label>
+</div>
+<div class="form-row">
+<label>
                 Event date
-                <input type="date" name="date">
-              </label>
-              <label>
+                <input name="date" type="date"/>
+</label>
+<label>
                 Location
-                <input type="text" name="location" autocomplete="address-level2" placeholder="City or venue">
-              </label>
-            </div>
-
-            <label>
+                <input autocomplete="address-level2" name="location" placeholder="City or venue" type="text"/>
+</label>
+</div>
+<label>
               Music option
               <select name="project">
-                <option value="Not sure yet">Not sure yet</option>
-                <option value="Cooper Morris solo">Cooper Morris solo</option>
-                <option value="Cooper & Jen">Cooper & Jen</option>
-                <option value="Tree House Trio">Tree House Trio</option>
-                <option value="Born of Wildfires">Born of Wildfires</option>
-              </select>
-            </label>
-
-            <label>
+<option value="Not sure yet">Not sure yet</option>
+<option value="Cooper Morris solo">Cooper Morris solo</option>
+<option value="Cooper &amp; Jen">Cooper &amp; Jen</option>
+<option value="Tree House Trio">Tree House Trio</option>
+<option value="Born of Wildfires">Born of Wildfires</option>
+</select>
+</label>
+<label>
               Tell Cooper about the event
-              <textarea name="message" rows="5" placeholder="Type of event, approximate times, audience, and anything else helpful"></textarea>
-            </label>
-
-            <button class="button primary form-submit" type="submit">Open booking email in Gmail</button>
-            <a class="email-app-fallback" id="emailAppFallback" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry">Use another email app instead</a>
-            <p class="form-note">Gmail opens in a new tab with Cooper as the recipient and your details filled in. This website stays open.</p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>© 2026 Cooper Morris Music</span>
-      <div class="footer-links">
-        <a href="https://open.spotify.com/artist/6AYi6OT4Fbtsaiw4BuOyjr" target="_blank" rel="noopener noreferrer">Spotify</a>
-        <a href="https://www.youtube.com/@coopermmusic" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href="https://www.facebook.com/coopermorrismusic/" target="_blank" rel="noopener noreferrer">Facebook</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
+              <textarea name="message" placeholder="Type of event, approximate times, audience, and anything else helpful" rows="5"></textarea>
+</label>
+<button class="button primary form-submit" type="submit">Open booking email in Gmail</button>
+<a class="email-app-fallback" href="mailto:coopermorrismusic@gmail.com?subject=Booking%20inquiry" id="emailAppFallback">Use another email app instead</a>
+<p class="form-note">Gmail opens in a new tab with Cooper as the recipient and your details filled in. This website stays open.</p>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap footer-inner">
+<span>© 2026 Cooper Morris Music</span>
+<div class="footer-links">
+<a href="https://open.spotify.com/artist/6AYi6OT4Fbtsaiw4BuOyjr" rel="noopener noreferrer" target="_blank">Spotify</a>
+<a href="https://www.youtube.com/@coopermmusic" rel="noopener noreferrer" target="_blank">YouTube</a>
+<a href="https://www.facebook.com/coopermorrismusic/" rel="noopener noreferrer" target="_blank">Facebook</a>
+</div>
+</div>
+</footer>
+<script>
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
@@ -1234,7 +1564,7 @@
     });
 
     const mediaStage = document.getElementById('mediaStage');
-    const mediaTabs = [...document.querySelectorAll('.media-tab')];
+    const mediaChoicesButtons = [...document.querySelectorAll('.media-choice')];
 
     const mediaChoices = {
       spotify: {
@@ -1274,14 +1604,16 @@
       }
     };
 
-    mediaTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const choice = mediaChoices[tab.dataset.media];
-        mediaStage.className = `media-stage ${choice.className}`.trim();
+    mediaChoicesButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const choice = mediaChoices[button.dataset.media];
+        if (!choice) return;
+
+        mediaStage.className = `explore-stage ${choice.className}`.trim();
         mediaStage.innerHTML = choice.html;
 
-        mediaTabs.forEach(item => {
-          const active = item === tab;
+        mediaChoicesButtons.forEach(item => {
+          const active = item === button;
           item.classList.toggle('active', active);
           item.setAttribute('aria-selected', String(active));
         });
@@ -1315,6 +1647,7 @@
 
     function goToStory(offset) {
       const cards = storyCards();
+      if (!cards.length) return;
       const nextIndex = Math.max(0, Math.min(cards.length - 1, currentStoryIndex() + offset));
       cards[nextIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
