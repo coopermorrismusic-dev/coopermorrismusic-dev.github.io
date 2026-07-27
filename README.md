@@ -77,3 +77,18 @@ Keep every image in the same folder as `index.html`.
 
 - Booking form now opens a prepared Gmail compose page instead of depending on a configured desktop email app
 - Added a normal email-app fallback link
+
+## Version 2.10
+
+- Gmail now opens only in a new tab
+- The website remains open in its current position
+- Removed the fallback behavior that redirected the main website tab
+
+## Version 2.11 — Media Lounge
+
+- Rebuilt the gallery as a media lounge
+- Visitors can choose Spotify, the piano performance, or the Tree House Trio video
+- The player stays visible beside the photo journal on desktop
+- Audio/video keeps playing while visitors browse the photos
+- Gallery arrows move vertically through the recent-photo stories
+- Navigation now labels the section Lounge
