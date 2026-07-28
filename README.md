@@ -116,3 +116,11 @@ Keep every image in the same folder as `index.html`.
 - Added the newer solo close-up performance photo
 - Added the current Tree House Trio portrait
 - Kept the new Jen & Cooper and Born of Wildfires photos
+
+## Version 2.15
+
+- Changed the gallery caption from “tree-house” to “treehouse”
+- Added YouTube rel=0, inline playback, and hidden-annotation parameters
+- Changed the booking form to use the working mail-app compose method
+- Kept the website open while launching the email composer
+- Fixed date-field overflow on narrow mobile screens
