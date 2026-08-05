@@ -149,3 +149,16 @@ Public calendar ID:
 - Rechecked booking links, media links, navigation targets, and mobile layout
 
 Final cleaned package: `v2.17.1-b3d5eccd`
+
+## Version 2.18
+
+- Upcoming events stay inside a bounded vertical scrolling area
+- Approximately three desktop cards remain visible before internal scrolling begins
+- Phone and tablet lists use a responsive viewport-height limit
+- Event cards snap gently into place while scrolling
+- The next/current show remains first and finished shows disappear immediately
+- Uploading this version triggers an automatic calendar sync
+- Scheduled calendar checks increased from hourly to every 15 minutes
+- Calendar downloads now bypass ordinary caching
+
+Final package: `v2.18-22819e5a`

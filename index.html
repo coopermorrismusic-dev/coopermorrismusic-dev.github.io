@@ -1204,13 +1204,69 @@
       gap: 9px;
     }
 
+    .event-list-wrap {
+      position: relative;
+    }
+
     .event-list {
+      max-height: 730px;
+      padding-right: 9px;
       display: grid;
       gap: 15px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      overscroll-behavior: contain;
+      scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
+      scrollbar-gutter: stable;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(35,64,49,.58) rgba(35,64,49,.09);
+    }
+
+    .event-list::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .event-list::-webkit-scrollbar-track {
+      border-radius: 999px;
+      background: rgba(35,64,49,.09);
+    }
+
+    .event-list::-webkit-scrollbar-thumb {
+      border: 2px solid transparent;
+      border-radius: 999px;
+      background: rgba(35,64,49,.58);
+      background-clip: padding-box;
+    }
+
+    .event-list:not(.has-overflow) {
+      max-height: none;
+      padding-right: 0;
+      overflow: visible;
+      scrollbar-gutter: auto;
+    }
+
+    .events-scroll-hint {
+      margin: 12px 5px 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--forest);
+      font-size: .74rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      font-weight: 820;
+    }
+
+    .events-scroll-hint[hidden] {
+      display: none;
     }
 
     .event-card {
       min-width: 0;
+      scroll-snap-align: start;
+      scroll-margin-top: 8px;
       overflow: hidden;
       display: grid;
       grid-template-columns: 122px minmax(0, 1fr) minmax(190px, 250px);
@@ -1372,6 +1428,10 @@
     }
 
     @media (max-width: 850px) {
+      .event-list {
+        max-height: min(820px, 78vh);
+      }
+
       .event-card {
         grid-template-columns: 105px minmax(0, 1fr);
       }
@@ -1401,6 +1461,21 @@
       .events-panel {
         padding: 12px;
         border-radius: 25px;
+      }
+
+      .event-list {
+        max-height: min(760px, 76vh);
+        padding-right: 5px;
+        gap: 13px;
+      }
+
+      .event-list::-webkit-scrollbar {
+        width: 7px;
+      }
+
+      .events-scroll-hint {
+        margin-top: 10px;
+        font-size: .68rem;
       }
 
       .events-panel-head {
@@ -1540,6 +1615,7 @@
 <a class="button primary small" href="#contact">Ask about booking</a>
 </div>
 </div>
+<div class="event-list-wrap">
 <div class="event-list" id="eventList">
 <article aria-hidden="true" class="event-card event-card-loading">
 <div class="event-date">
@@ -1554,7 +1630,12 @@
 <div class="event-image-placeholder"></div>
 </article>
 </div>
-<p class="calendar-footnote">Dates, times, and locations come from Cooper’s dedicated public calendar. Past shows disappear automatically.</p>
+<div class="events-scroll-hint" hidden id="eventsScrollHint">
+<span>Scroll for later dates</span>
+<span aria-hidden="true">↓</span>
+</div>
+</div>
+<p class="calendar-footnote">Dates, times, and locations come from Cooper’s dedicated public calendar. Current and future shows appear in chronological order; finished shows disappear automatically.</p>
 </div>
 </div>
 </section><section class="projects" data-spy="" id="projects">
@@ -1967,6 +2048,7 @@
 
     const eventList = document.getElementById('eventList');
     const calendarStatus = document.getElementById('calendarStatus');
+    const eventsScrollHint = document.getElementById('eventsScrollHint');
     const PUBLIC_CALENDAR_URL = 'https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles';
 
     function escapeHtml(value = '') {
@@ -2058,6 +2140,19 @@
       `;
     }
 
+    function updateEventListOverflow() {
+      if (!eventList) return;
+
+      eventList.classList.remove('has-overflow');
+      const naturalHeight = eventList.scrollHeight;
+      const maxHeight = parseFloat(getComputedStyle(eventList).maxHeight);
+      const hasFiniteLimit = Number.isFinite(maxHeight) && maxHeight > 0;
+      const hasOverflow = hasFiniteLimit && naturalHeight > maxHeight + 4;
+
+      eventList.classList.toggle('has-overflow', hasOverflow);
+      if (eventsScrollHint) eventsScrollHint.hidden = !hasOverflow;
+    }
+
     async function loadShows() {
       try {
         const response = await fetch(`events.json?v=${Date.now()}`, { cache: 'no-store' });
@@ -2066,7 +2161,7 @@
         const data = await response.json();
         const now = Date.now();
         const events = (data.events || [])
-          .filter(event => new Date(event.end || event.start).getTime() >= now - 60 * 60 * 1000)
+          .filter(event => new Date(event.end || event.start).getTime() >= now)
           .sort((a, b) => new Date(a.start) - new Date(b.start));
 
         if (!events.length) {
@@ -2077,6 +2172,8 @@
             </div>
           `;
           calendarStatus.textContent = 'No public dates are currently listed.';
+          eventList.classList.remove('has-overflow');
+          if (eventsScrollHint) eventsScrollHint.hidden = true;
           return;
         }
 
@@ -2090,6 +2187,7 @@
         });
 
         calendarStatus.textContent = `${events.length} upcoming ${events.length === 1 ? 'show' : 'shows'} currently listed.`;
+        requestAnimationFrame(updateEventListOverflow);
       } catch (error) {
         eventList.innerHTML = `
           <div class="no-events">
@@ -2099,11 +2197,14 @@
           </div>
         `;
         calendarStatus.textContent = 'Calendar temporarily unavailable.';
+        eventList.classList.remove('has-overflow');
+        if (eventsScrollHint) eventsScrollHint.hidden = true;
         console.error(error);
       }
     }
 
     loadShows();
+    window.addEventListener('resize', () => requestAnimationFrame(updateEventListOverflow));
 
     const mediaStage = document.getElementById('mediaStage');
     const mediaChoicesButtons = [...document.querySelectorAll('.media-choice')];

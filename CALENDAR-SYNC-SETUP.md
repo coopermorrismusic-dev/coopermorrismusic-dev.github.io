@@ -40,3 +40,10 @@ A locally uploaded website image also works:
 `IMAGE: trio-current.webp`
 
 Without an IMAGE line, the website automatically uses a matching project photo.
+
+## Version 2.18 behavior
+
+- Uploading this update triggers an immediate calendar sync automatically.
+- The calendar is checked every 15 minutes afterward.
+- You can still run **Actions → Sync public shows → Run workflow** for an immediate manual check.
+- Google may occasionally take a few minutes to publish a brand-new public event.

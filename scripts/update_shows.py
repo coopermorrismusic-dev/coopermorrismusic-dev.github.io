@@ -127,7 +127,7 @@ def parse_events(ics_text: str) -> list[dict]:
         name, params, value = parse_property(line)
         current.setdefault(name, []).append((params, value))
 
-    now = datetime.now(LOCAL_ZONE) - timedelta(hours=2)
+    now = datetime.now(LOCAL_ZONE)
     events = [event for event in events if datetime.fromisoformat(event["end"]) >= now]
     events.sort(key=lambda event: event["start"])
     return events[:40]
@@ -190,9 +190,14 @@ def build_event(fields: dict) -> dict | None:
 
 
 def main() -> None:
+    cache_buster = int(datetime.now(timezone.utc).timestamp())
     request = urllib.request.Request(
-        ICAL_URL,
-        headers={"User-Agent": "CooperMorrisMusicCalendarSync/1.0"},
+        f"{ICAL_URL}?v={cache_buster}",
+        headers={
+            "User-Agent": "CooperMorrisMusicCalendarSync/1.1",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        },
     )
     with urllib.request.urlopen(request, timeout=30) as response:
         ics_text = response.read().decode("utf-8-sig")
