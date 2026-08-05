@@ -1,0 +1,55 @@
+name: Sync public shows
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/sync-public-shows.yml"
+      - "scripts/update_shows.py"
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-shows-sync
+  cancel-in-progress: true
+
+jobs:
+  update-shows:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download public calendar
+        run: python scripts/update_shows.py
+
+      - name: Check for calendar changes
+        id: changes
+        shell: bash
+        run: |
+          if git diff --quiet -- events.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save updated events
+        if: steps.changes.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git config user.name "calendar-sync[bot]"
+          git config user.email "calendar-sync[bot]@users.noreply.github.com"
+          git add events.json
+          git commit -m "Update public show calendar"
+          git push
