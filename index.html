@@ -1137,111 +1137,329 @@
     }
 
   
-    /* Upcoming public shows */
+    /* Navigation refinement */
+    .nav-link.home-dot {
+      width: 40px;
+      min-width: 40px;
+      padding-inline: 0;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    /* Upcoming shows — custom event cards */
     .shows-section {
       background:
-        radial-gradient(circle at 8% 15%, rgba(188,137,82,.18), transparent 30rem),
-        #e7ddcf;
+        radial-gradient(circle at 9% 15%, rgba(188,137,82,.17), transparent 31rem),
+        linear-gradient(180deg, #e8ddce 0%, #eee6da 100%);
       border-top: 1px solid rgba(23,25,22,.07);
       border-bottom: 1px solid rgba(23,25,22,.08);
     }
 
-    .shows-layout {
-      display: grid;
-      grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr);
-      gap: clamp(24px, 4vw, 48px);
-      align-items: stretch;
-    }
+    .shows-heading { margin-bottom: 30px; }
 
-    .shows-copy {
-      padding: clamp(25px, 4vw, 42px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-radius: 28px;
-      background: var(--forest-dark);
-      color: #f7f1e8;
+    .events-panel {
+      padding: clamp(18px, 3vw, 30px);
+      border: 1px solid rgba(23,25,22,.1);
+      border-radius: 34px;
+      background: rgba(255,255,255,.48);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
 
-    .shows-kicker {
-      color: #dcb17e;
-      font-size: .7rem;
-      letter-spacing: .15em;
+    .events-panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 5px 5px 22px;
+    }
+
+    .shows-kicker,
+    .event-project {
+      display: block;
+      color: var(--rose);
+      font-size: .68rem;
+      letter-spacing: .13em;
       text-transform: uppercase;
       font-weight: 850;
     }
 
-    .shows-copy h3 {
-      margin: 10px 0 12px;
-      font-size: clamp(2rem, 4vw, 3.6rem);
+    .events-panel-head h3 {
+      margin: 6px 0 5px;
+      font-size: clamp(2rem, 4vw, 3.25rem);
       line-height: .98;
       letter-spacing: -.045em;
     }
 
-    .shows-copy p {
+    .events-panel-head p {
       margin: 0;
-      color: #cad1ca;
-      font-size: .98rem;
+      color: var(--muted);
+      font-size: .88rem;
     }
 
     .shows-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 26px;
+      justify-content: flex-end;
+      gap: 9px;
     }
 
-    .shows-copy .button.secondary {
-      color: #f7f1e8;
-      border-color: rgba(255,255,255,.5);
-      background: rgba(255,255,255,.07);
+    .event-list {
+      display: grid;
+      gap: 15px;
     }
 
-    .calendar-frame {
+    .event-card {
       min-width: 0;
-      min-height: 540px;
       overflow: hidden;
-      border-radius: 28px;
-      background: #f7f1e8;
-      border: 1px solid rgba(23,25,22,.12);
-      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 122px minmax(0, 1fr) minmax(190px, 250px);
+      min-height: 220px;
+      border: 1px solid rgba(23,25,22,.1);
+      border-radius: 27px;
+      background: #fbf8f2;
+      box-shadow: 0 15px 38px rgba(24,30,24,.09);
     }
 
-    .calendar-frame iframe {
+    .event-date {
+      padding: 25px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #f7f1e8;
+      background: var(--forest-dark);
+    }
+
+    .event-date span {
+      font-size: .69rem;
+      letter-spacing: .14em;
+      font-weight: 850;
+    }
+
+    .event-date strong {
+      margin-top: 3px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 3.85rem;
+      line-height: .9;
+    }
+
+    .event-date small {
+      margin-top: 8px;
+      color: #d7ded8;
+      font-size: .7rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      font-weight: 760;
+    }
+
+    .event-body {
+      min-width: 0;
+      padding: 27px clamp(22px, 3vw, 38px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .event-body h3 {
+      margin: 6px 0 8px;
+      font-size: clamp(1.65rem, 3vw, 2.55rem);
+      line-height: 1;
+      letter-spacing: -.035em;
+    }
+
+    .event-venue {
+      margin: 0;
+      color: var(--forest);
+      font-size: 1rem;
+      font-weight: 760;
+    }
+
+    .event-meta {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .event-meta span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #4f554e;
+      background: #eee7dc;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .event-description {
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .event-links {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .event-links a {
+      color: var(--ink);
+      font-size: .82rem;
+      font-weight: 820;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .event-image {
+      min-width: 0;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: var(--forest);
+    }
+
+    .event-image img {
       width: 100%;
-      height: 600px;
-      min-height: 540px;
-      background: #f7f1e8;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .event-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(251,248,242,.08), transparent 34%);
+    }
+
+    .event-image-placeholder {
+      min-height: 220px;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(220,177,126,.55), transparent 40%),
+        var(--forest);
+    }
+
+    .event-card-loading {
+      opacity: .72;
+    }
+
+    .no-events {
+      padding: clamp(28px, 5vw, 54px);
+      text-align: center;
+      border: 1px dashed rgba(23,25,22,.19);
+      border-radius: 26px;
+      background: rgba(255,255,255,.38);
+    }
+
+    .no-events h3 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+
+    .no-events p {
+      max-width: 570px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .calendar-footnote {
+      margin: 17px 4px 2px;
+      color: var(--muted);
+      font-size: .78rem;
     }
 
     @media (max-width: 850px) {
-      .shows-layout { grid-template-columns: 1fr; }
-      .shows-copy { padding: 28px 24px; }
-      .calendar-frame,
-      .calendar-frame iframe { min-height: 560px; }
-      .calendar-frame iframe { height: 560px; }
+      .event-card {
+        grid-template-columns: 105px minmax(0, 1fr);
+      }
+
+      .event-image {
+        grid-column: 1 / -1;
+        min-height: 280px;
+        max-height: 440px;
+      }
     }
 
     @media (max-width: 600px) {
       .nav-link {
-        padding-inline: 7px;
-        font-size: .72rem;
+        padding-inline: 8px;
+        font-size: .73rem;
       }
 
-      .shows-section { padding-block: 60px; }
-      .shows-heading { margin-bottom: 25px; }
-      .shows-copy { border-radius: 22px; }
-      .shows-actions { display: grid; grid-template-columns: 1fr; }
-      .shows-actions .button { width: 100%; }
-      .calendar-frame { border-radius: 22px; }
-      .calendar-frame,
-      .calendar-frame iframe {
-        min-height: 520px;
-        height: 520px;
+      .nav-link.home-dot {
+        width: 32px;
+        min-width: 32px;
+        font-size: 1.16rem;
       }
 
-      /* Keep the same vertical journal, but make it cleaner on phones. */
+      .shows-section { padding-block: 62px; }
+      .shows-heading { margin-bottom: 24px; }
+
+      .events-panel {
+        padding: 12px;
+        border-radius: 25px;
+      }
+
+      .events-panel-head {
+        display: grid;
+        align-items: start;
+        padding: 9px 7px 18px;
+      }
+
+      .shows-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: stretch;
+      }
+
+      .shows-actions .button {
+        width: 100%;
+        padding-inline: 12px;
+        font-size: .78rem;
+      }
+
+      .event-card {
+        grid-template-columns: 86px minmax(0, 1fr);
+        min-height: 0;
+        border-radius: 21px;
+      }
+
+      .event-date {
+        padding: 21px 10px;
+      }
+
+      .event-date strong {
+        font-size: 3rem;
+      }
+
+      .event-body {
+        padding: 22px 18px;
+      }
+
+      .event-body h3 {
+        font-size: 1.65rem;
+      }
+
+      .event-meta {
+        display: grid;
+        justify-items: start;
+      }
+
+      .event-image {
+        min-height: 230px;
+      }
+
+      .event-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Preserve the vertical photo journal; only refine phone navigation. */
       .photo-journal { margin-top: 4px; }
       .journal-toolbar {
         top: 71px;
@@ -1266,7 +1484,7 @@
       }
     }
 
-  </style>
+</style>
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -1275,11 +1493,11 @@
 <a class="brand" href="#home">Cooper Morris Music</a>
 <div class="nav-shell" id="navShell">
 <span aria-hidden="true" class="nav-indicator" id="navIndicator"></span>
-<a class="nav-link active" data-section="home" href="#home">Home</a>
-<a class="nav-link" data-section="shows" href="#shows">Shows</a><a class="nav-link" data-section="listen" href="#listen">Listen</a>
-<a class="nav-link" data-section="projects" href="#projects">Projects</a>
-<a class="nav-link" data-section="contact" href="#contact">Contact</a>
-</div>
+
+
+
+
+<a aria-label="Home" class="nav-link home-dot active" data-section="home" href="#home" title="Home"><span aria-hidden="true">•</span></a><a class="nav-link" data-section="shows" href="#shows">Upcoming</a><a class="nav-link" data-section="projects" href="#projects">Projects</a><a class="nav-link" data-section="listen" href="#listen">Listen</a><a class="nav-link" data-section="contact" href="#contact">Contact</a></div>
 </nav>
 </header>
 <main>
@@ -1297,32 +1515,111 @@
 <img alt="Cooper Morris seated outdoors with an acoustic guitar" class="hero-image" src="hero-bright.webp"/>
 <div aria-hidden="true" class="stamp">Live music<br/>since 2017</div>
 </div>
-</div><section class="shows-section" data-spy="" id="shows">
+</div>
+
+
+
+<section class="shows-section" data-spy="" id="shows">
 <div class="wrap">
 <div class="section-head shows-heading">
 <div>
 <p class="eyebrow">Upcoming public performances</p>
 <h2>Come hear it live.</h2>
 </div>
-<p>Public shows from Cooper Morris, Jen &amp; Cooper, Tree House Trio, and Born of Wildfires. This schedule updates automatically when a new performance is added.</p>
+<p>Confirmed public dates for Cooper Morris, Jen &amp; Cooper, Tree House Trio, and Born of Wildfires—kept in one place and updated from the public show calendar.</p>
 </div>
-<div class="shows-layout">
-<div class="shows-copy">
-<span class="shows-kicker">Live calendar</span>
+<div class="events-panel">
+<div class="events-panel-head">
+<div>
+<span class="shows-kicker">On the calendar</span>
 <h3>Upcoming shows</h3>
-<p>Times and venues are listed here as soon as they are confirmed. Select an event for its full location and any additional details.</p>
+<p aria-live="polite" id="calendarStatus">Loading the latest dates…</p>
+</div>
 <div class="shows-actions">
-<a class="button primary small" href="https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&amp;ctz=America%2FLos_Angeles" rel="noopener noreferrer" target="_blank">Open full calendar ↗</a>
-<a class="button secondary small" href="#contact">Ask about booking</a>
+<a class="button secondary small" href="https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&amp;ctz=America%2FLos_Angeles" rel="noopener noreferrer" target="_blank">Full calendar ↗</a>
+<a class="button primary small" href="#contact">Ask about booking</a>
 </div>
 </div>
-<div class="calendar-frame">
-<iframe loading="lazy" scrolling="no" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;ctz=America%2FLos_Angeles&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;showTitle=0&amp;mode=AGENDA&amp;bgcolor=%23f7f1e8&amp;src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&amp;color=%23F6BF26" title="Cooper Morris public upcoming shows calendar"></iframe>
+<div class="event-list" id="eventList">
+<article aria-hidden="true" class="event-card event-card-loading">
+<div class="event-date">
+<span>UPCOMING</span>
+<strong>••</strong>
+</div>
+<div class="event-body">
+<span class="event-project">Public performance</span>
+<h3>Loading upcoming shows…</h3>
+<p>The current schedule will appear here in a moment.</p>
+</div>
+<div class="event-image-placeholder"></div>
+</article>
+</div>
+<p class="calendar-footnote">Dates, times, and locations come from Cooper’s dedicated public calendar. Past shows disappear automatically.</p>
 </div>
 </div>
+</section><section class="projects" data-spy="" id="projects">
+<div class="wrap">
+<div class="section-head">
+<div>
+<p class="eyebrow">The work</p>
+<h2>Four sides of the music.</h2>
 </div>
-</section>
-<section class="listen explore-section" data-spy="" id="listen">
+<p>From writing alone at the piano to a full weekend of live shows, each project brings out a different part of Cooper’s musical life.</p>
+</div>
+<div class="project-stack">
+<article class="project-card">
+<div class="project-image">
+<img alt="Cooper Morris performing solo with an acoustic guitar during a Tree House Trio set" class="main" src="solo-closeup.webp"/>
+</div>
+<div class="project-copy">
+<span class="project-number">01 · Solo artist</span>
+<h3>Cooper Morris</h3>
+<p>Cooper writes, records, performs, and produces his original music from the ground up. The solo project is where intimate piano pieces, singer-songwriter material, layered studio productions, and years of live performance all meet.</p>
+<p>Onstage, the same project can move between acoustic guitar, piano, familiar songs, and originals—shaped to fit the room rather than forcing every show into one format.</p>
+<div class="project-tags"><span class="tag">Songwriting</span><span class="tag">Recording</span><span class="tag">Self-production</span><span class="tag">Solo performance</span></div>
+</div>
+</article>
+<article class="project-card">
+<div class="project-image">
+<img alt="Jen Sennett and Cooper Morris singing together at Smitty's in Veneta" class="main" src="duo-smittys.webp"/>
+</div>
+<div class="project-copy">
+<span class="project-number">02 · The foundation</span>
+<h3>Cooper &amp; Jen</h3>
+<p>The duo with Jen is the foundation underneath much of Cooper’s live music. Their shared history gives the performances an easy musical connection—built on voices that know how to meet, familiar arrangements, and the flexibility to make a set feel personal.</p>
+<p>It is a warm, adaptable format for wineries, private events, listening rooms, and stages that call for something fuller than solo music without losing intimacy.</p>
+<div class="project-tags"><span class="tag">Acoustic duo</span><span class="tag">Harmony</span><span class="tag">Events</span><span class="tag">Long-running collaboration</span></div>
+</div>
+</article>
+<article class="project-card">
+<div class="project-image">
+<img alt="Born of Wildfires performing at Bennett Vineyards over Fourth of July weekend" class="main" src="bow-bennett.webp"/>
+</div>
+<div class="project-copy">
+<img alt="Born of Wildfires flame logo" class="project-logo-inline" src="bow-logo.webp"/>
+<span class="project-number">03 · Full band</span>
+<h3>Born of Wildfires</h3>
+<p>Born of Wildfires expands the music into a full-band setting: bigger rhythm, more electric color, and the energy to carry across an outdoor stage or a busy room.</p>
+<p>It is the project for performances that need the lift and momentum of a complete band while keeping the songs and voices at the center.</p>
+<div class="project-tags"><span class="tag">Full band</span><span class="tag">Live energy</span><span class="tag">Outdoor stages</span><span class="tag">Electric sound</span></div>
+</div>
+</article>
+<article class="project-card">
+<div class="project-image">
+<img alt="Cooper, Jen, and Dakota posing together after a Tree House Trio performance" class="main" src="trio-current.webp"/>
+</div>
+<div class="project-copy">
+<img alt="Tree House Trio logo" class="project-logo-inline treehouse-inline" src="treehouse-logo.webp"/>
+<span class="project-number">04 · Current chapter</span>
+<h3>Tree House Trio</h3>
+<p>Tree House Trio brings Cooper, Jen, and Dakota together in a playful, flexible live group built around strong vocals, acoustic instruments, electric color, and clear chemistry.</p>
+<p>The new trio has quickly become a major part of the calendar, with weekend bookings and performances that move naturally between close listening, dancing, laughter, and a crowd singing along.</p>
+<div class="project-tags"><span class="tag">Three-part chemistry</span><span class="tag">Weekend shows</span><span class="tag">Audience connection</span><span class="tag">Acoustic &amp; electric</span></div>
+</div>
+</article>
+</div>
+</div>
+</section><section class="listen explore-section" data-spy="" id="listen">
 <div class="wrap">
 <div class="section-head explore-heading">
 <div>
@@ -1512,71 +1809,7 @@
 </div>
 </div>
 </div>
-</section>
-<section class="projects" data-spy="" id="projects">
-<div class="wrap">
-<div class="section-head">
-<div>
-<p class="eyebrow">The work</p>
-<h2>Four sides of the music.</h2>
-</div>
-<p>From writing alone at the piano to a full weekend of live shows, each project brings out a different part of Cooper’s musical life.</p>
-</div>
-<div class="project-stack">
-<article class="project-card">
-<div class="project-image">
-<img alt="Cooper Morris performing solo with an acoustic guitar during a Tree House Trio set" class="main" src="solo-closeup.webp"/>
-</div>
-<div class="project-copy">
-<span class="project-number">01 · Solo artist</span>
-<h3>Cooper Morris</h3>
-<p>Cooper writes, records, performs, and produces his original music from the ground up. The solo project is where intimate piano pieces, singer-songwriter material, layered studio productions, and years of live performance all meet.</p>
-<p>Onstage, the same project can move between acoustic guitar, piano, familiar songs, and originals—shaped to fit the room rather than forcing every show into one format.</p>
-<div class="project-tags"><span class="tag">Songwriting</span><span class="tag">Recording</span><span class="tag">Self-production</span><span class="tag">Solo performance</span></div>
-</div>
-</article>
-<article class="project-card">
-<div class="project-image">
-<img alt="Jen Sennett and Cooper Morris singing together at Smitty's in Veneta" class="main" src="duo-smittys.webp"/>
-</div>
-<div class="project-copy">
-<span class="project-number">02 · The foundation</span>
-<h3>Cooper &amp; Jen</h3>
-<p>The duo with Jen is the foundation underneath much of Cooper’s live music. Their shared history gives the performances an easy musical connection—built on voices that know how to meet, familiar arrangements, and the flexibility to make a set feel personal.</p>
-<p>It is a warm, adaptable format for wineries, private events, listening rooms, and stages that call for something fuller than solo music without losing intimacy.</p>
-<div class="project-tags"><span class="tag">Acoustic duo</span><span class="tag">Harmony</span><span class="tag">Events</span><span class="tag">Long-running collaboration</span></div>
-</div>
-</article>
-<article class="project-card">
-<div class="project-image">
-<img alt="Born of Wildfires performing at Bennett Vineyards over Fourth of July weekend" class="main" src="bow-bennett.webp"/>
-</div>
-<div class="project-copy">
-<img alt="Born of Wildfires flame logo" class="project-logo-inline" src="bow-logo.webp"/>
-<span class="project-number">03 · Full band</span>
-<h3>Born of Wildfires</h3>
-<p>Born of Wildfires expands the music into a full-band setting: bigger rhythm, more electric color, and the energy to carry across an outdoor stage or a busy room.</p>
-<p>It is the project for performances that need the lift and momentum of a complete band while keeping the songs and voices at the center.</p>
-<div class="project-tags"><span class="tag">Full band</span><span class="tag">Live energy</span><span class="tag">Outdoor stages</span><span class="tag">Electric sound</span></div>
-</div>
-</article>
-<article class="project-card">
-<div class="project-image">
-<img alt="Cooper, Jen, and Dakota posing together after a Tree House Trio performance" class="main" src="trio-current.webp"/>
-</div>
-<div class="project-copy">
-<img alt="Tree House Trio logo" class="project-logo-inline treehouse-inline" src="treehouse-logo.webp"/>
-<span class="project-number">04 · Current chapter</span>
-<h3>Tree House Trio</h3>
-<p>Tree House Trio brings Cooper, Jen, and Dakota together in a playful, flexible live group built around strong vocals, acoustic instruments, electric color, and clear chemistry.</p>
-<p>The new trio has quickly become a major part of the calendar, with weekend bookings and performances that move naturally between close listening, dancing, laughter, and a crowd singing along.</p>
-<div class="project-tags"><span class="tag">Three-part chemistry</span><span class="tag">Weekend shows</span><span class="tag">Audience connection</span><span class="tag">Acoustic &amp; electric</span></div>
-</div>
-</article>
-</div>
-</div>
-</section>
-<section data-spy="" id="contact">
+</section><section data-spy="" id="contact">
 <div class="wrap">
 <div class="contact-card">
 <div class="contact-copy">
@@ -1629,8 +1862,7 @@
 </form>
 </div>
 </div>
-</section>
-</main>
+</section></main>
 <footer>
 <div class="wrap footer-inner">
 <span>© 2026 Cooper Morris Music</span>
@@ -1731,6 +1963,147 @@
       const active = document.querySelector('.nav-link.active');
       if (active) moveIndicator(active);
     });
+
+
+    const eventList = document.getElementById('eventList');
+    const calendarStatus = document.getElementById('calendarStatus');
+    const PUBLIC_CALENDAR_URL = 'https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles';
+
+    function escapeHtml(value = '') {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function formatEventDate(event) {
+      const start = new Date(event.start);
+      return {
+        month: new Intl.DateTimeFormat('en-US', {
+          month: 'short',
+          timeZone: 'America/Los_Angeles'
+        }).format(start).toUpperCase(),
+        day: new Intl.DateTimeFormat('en-US', {
+          day: 'numeric',
+          timeZone: 'America/Los_Angeles'
+        }).format(start),
+        weekday: new Intl.DateTimeFormat('en-US', {
+          weekday: 'short',
+          timeZone: 'America/Los_Angeles'
+        }).format(start)
+      };
+    }
+
+    function formatEventTime(event) {
+      if (event.all_day) return 'All day';
+
+      const start = new Date(event.start);
+      const end = event.end ? new Date(event.end) : null;
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        timeZone: 'America/Los_Angeles'
+      });
+
+      return end ? `${formatter.format(start)}–${formatter.format(end)}` : formatter.format(start);
+    }
+
+    function locationLabel(location = '') {
+      const pieces = location.split(',').map(piece => piece.trim()).filter(Boolean);
+      if (pieces.length >= 3) return `${pieces[0]} · ${pieces[1]}, ${pieces[2].replace(/\s+\d{5}(?:-\d{4})?$/, '')}`;
+      return pieces.slice(0, 2).join(' · ') || 'Location available in event details';
+    }
+
+    function eventCard(event) {
+      const date = formatEventDate(event);
+      const location = event.location || '';
+      const directionsUrl = location
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`
+        : '';
+      const image = event.image || event.fallback_image || 'solo-closeup.webp';
+      const detailsUrl = event.url || PUBLIC_CALENDAR_URL;
+
+      return `
+        <article class="event-card">
+          <div class="event-date">
+            <span>${escapeHtml(date.month)}</span>
+            <strong>${escapeHtml(date.day)}</strong>
+            <small>${escapeHtml(date.weekday)}</small>
+          </div>
+
+          <div class="event-body">
+            <span class="event-project">${escapeHtml(event.project || 'Cooper Morris')}</span>
+            <h3>${escapeHtml(event.title || event.summary || 'Live performance')}</h3>
+            <p class="event-venue">${escapeHtml(event.venue || locationLabel(location))}</p>
+
+            <div class="event-meta">
+              <span>${escapeHtml(formatEventTime(event))}</span>
+              ${location ? `<span>${escapeHtml(locationLabel(location))}</span>` : ''}
+            </div>
+
+            ${event.description ? `<p class="event-description">${escapeHtml(event.description)}</p>` : ''}
+
+            <div class="event-links">
+              ${directionsUrl ? `<a href="${directionsUrl}" target="_blank" rel="noopener noreferrer">Directions ↗</a>` : ''}
+              <a href="${escapeHtml(detailsUrl)}" target="_blank" rel="noopener noreferrer">Calendar details ↗</a>
+            </div>
+          </div>
+
+          <div class="event-image">
+            <img src="${escapeHtml(image)}" data-fallback="${escapeHtml(event.fallback_image || 'solo-closeup.webp')}" alt="${escapeHtml(event.project || 'Cooper Morris')} live performance" loading="lazy" />
+          </div>
+        </article>
+      `;
+    }
+
+    async function loadShows() {
+      try {
+        const response = await fetch(`events.json?v=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`Calendar data returned ${response.status}`);
+
+        const data = await response.json();
+        const now = Date.now();
+        const events = (data.events || [])
+          .filter(event => new Date(event.end || event.start).getTime() >= now - 60 * 60 * 1000)
+          .sort((a, b) => new Date(a.start) - new Date(b.start));
+
+        if (!events.length) {
+          eventList.innerHTML = `
+            <div class="no-events">
+              <h3>More dates are coming.</h3>
+              <p>There are no confirmed public shows listed right now. Check back soon or send a booking inquiry for your own event.</p>
+            </div>
+          `;
+          calendarStatus.textContent = 'No public dates are currently listed.';
+          return;
+        }
+
+        eventList.innerHTML = events.map(eventCard).join('');
+
+        eventList.querySelectorAll('.event-image img').forEach(image => {
+          image.addEventListener('error', () => {
+            const fallback = image.dataset.fallback || 'solo-closeup.webp';
+            if (!image.src.endsWith(fallback)) image.src = fallback;
+          }, { once: true });
+        });
+
+        calendarStatus.textContent = `${events.length} upcoming ${events.length === 1 ? 'show' : 'shows'} currently listed.`;
+      } catch (error) {
+        eventList.innerHTML = `
+          <div class="no-events">
+            <h3>The calendar is taking a minute.</h3>
+            <p>The public schedule could not load just now. The full Google Calendar is still available below.</p>
+            <p style="margin-top:16px"><a class="button primary small" href="${PUBLIC_CALENDAR_URL}" target="_blank" rel="noopener noreferrer">Open full calendar ↗</a></p>
+          </div>
+        `;
+        calendarStatus.textContent = 'Calendar temporarily unavailable.';
+        console.error(error);
+      }
+    }
+
+    loadShows();
 
     const mediaStage = document.getElementById('mediaStage');
     const mediaChoicesButtons = [...document.querySelectorAll('.media-choice')];

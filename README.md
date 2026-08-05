@@ -137,3 +137,15 @@ Keep every image in the same folder as `index.html`.
 
 Public calendar ID:
 `6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com`
+
+## Version 2.17
+
+- Replaced the Google Calendar iframe with custom, responsive event cards
+- Added automatic public-calendar synchronization through GitHub Actions
+- Added project-specific fallback photos and optional IMAGE directives
+- Changed the menu to: dot, Upcoming, Projects, Listen, Contact
+- Reordered the page to match the menu
+- Preserved the existing gallery design and phone-specific arrow behavior
+- Rechecked booking links, media links, navigation targets, and mobile layout
+
+Final cleaned package: `v2.17.1-b3d5eccd`
