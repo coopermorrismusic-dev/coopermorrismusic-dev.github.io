@@ -124,3 +124,16 @@ Keep every image in the same folder as `index.html`.
 - Changed the booking form to use the working mail-app compose method
 - Kept the website open while launching the email composer
 - Fixed date-field overflow on narrow mobile screens
+
+## Version 2.16
+
+- Added an Upcoming Shows section connected to the dedicated public Google Calendar
+- Calendar updates automatically when public events are added in Google Calendar
+- Added Shows to the navigation
+- Fixed the top Booking inquiry button so it scrolls to the booking form
+- Preserved the existing vertical photo-journal design
+- Fixed phone gallery arrows so they land on the previous or next full photo
+- Tightened mobile gallery spacing without changing the desktop design
+
+Public calendar ID:
+`6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com`
