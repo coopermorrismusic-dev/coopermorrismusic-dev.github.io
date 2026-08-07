@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T01:02:25.744388-07:00",
+  "generated_at": "2026-08-06T18:44:15.217058-07:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
     {
@@ -57,6 +57,21 @@
       "description": "",
       "start": "2026-08-14T19:00:00-07:00",
       "end": "2026-08-14T21:00:00-07:00",
+      "all_day": false,
+      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
+      "image": "",
+      "fallback_image": "trio-current.webp"
+    },
+    {
+      "id": "2brgpm5cjc01eh3uc36bmuj7u1@google.com",
+      "summary": "Tree House Trio - Spencer Creek Grange",
+      "project": "Tree House Trio",
+      "title": "Spencer Creek Grange",
+      "venue": "",
+      "location": "Crow Grange, 85994 Territorial Hwy, Eugene, OR 97402, USA",
+      "description": "",
+      "start": "2026-08-29T12:00:00-07:00",
+      "end": "2026-08-29T14:00:00-07:00",
       "all_day": false,
       "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
       "image": "",
