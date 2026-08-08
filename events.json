@@ -1,22 +1,7 @@
 {
-  "generated_at": "2026-08-08T12:18:35.498016-07:00",
+  "generated_at": "2026-08-08T13:58:47.577525-07:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
-    {
-      "id": "4c90uqcqqgiupa1qsm4kinjs39@google.com",
-      "summary": "Jen & Cooper - Rusty and Primitive Treasures @ Hayworth Vineyard",
-      "project": "Jen & Cooper",
-      "title": "Rusty and Primitive Treasures",
-      "venue": "Hayworth Vineyard",
-      "location": "20774 Coburg Rd, Harrisburg, OR 97446, USA",
-      "description": "",
-      "start": "2026-08-08T10:00:00-07:00",
-      "end": "2026-08-08T13:00:00-07:00",
-      "all_day": false,
-      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
-      "image": "",
-      "fallback_image": "duo-smittys.webp"
-    },
     {
       "id": "59bfitenuonf4aeel3k985q605@google.com",
       "summary": "Cooper Morris - Alesong Brewing",
