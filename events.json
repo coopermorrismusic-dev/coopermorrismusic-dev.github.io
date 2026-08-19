@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-08-19T10:54:53.705506-07:00",
+  "generated_at": "2026-08-19T12:12:11.389805-07:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
+    {
+      "id": "6ti6cphp6hh3cb9jccp6cb9k60s66b9ocphjab9m61im8or46li64p9gck@google.com",
+      "summary": "Jen & Cooper - Drop Bear Brewery",
+      "project": "Jen & Cooper",
+      "title": "Drop Bear Brewery",
+      "venue": "",
+      "location": "Drop Bear Brewery, 2690 Willamette St, Eugene, OR 97405, USA",
+      "description": "",
+      "start": "2026-08-21T19:00:00-07:00",
+      "end": "2026-08-21T21:00:00-07:00",
+      "all_day": false,
+      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
+      "image": "",
+      "fallback_image": "duo-smittys.webp"
+    },
     {
       "id": "2brgpm5cjc01eh3uc36bmuj7u1@google.com",
       "summary": "Tree House Trio - Spencer Creek Grange",
