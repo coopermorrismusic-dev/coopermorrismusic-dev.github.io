@@ -128,7 +128,15 @@ def parse_events(ics_text: str) -> list[dict]:
         current.setdefault(name, []).append((params, value))
 
     now = datetime.now(LOCAL_ZONE)
-    events = [event for event in events if datetime.fromisoformat(event["end"]) >= now]
+
+    def keep_through_following_day(event: dict) -> bool:
+        end = datetime.fromisoformat(event["end"]).astimezone(LOCAL_ZONE)
+        # Google all-day DTEND is exclusive, so step back before choosing the display date.
+        display_end = end - timedelta(microseconds=1) if event.get("all_day") else end
+        remove_at = datetime.combine(display_end.date() + timedelta(days=2), time.min, LOCAL_ZONE)
+        return now < remove_at
+
+    events = [event for event in events if keep_through_following_day(event)]
     events.sort(key=lambda event: event["start"])
     return events[:40]
 
@@ -209,7 +217,7 @@ def main() -> None:
     }
 
     OUTPUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Wrote {len(payload['events'])} upcoming events to {OUTPUT_PATH}")
+    print(f"Wrote {len(payload['events'])} current, upcoming, and recent events to {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
