@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T17:57:13.259625-07:00",
+  "generated_at": "2026-08-28T20:49:56.791739-07:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
     {
@@ -27,6 +27,51 @@
       "description": "",
       "start": "2026-08-30T14:30:00-07:00",
       "end": "2026-08-30T16:30:00-07:00",
+      "all_day": false,
+      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
+      "image": "",
+      "fallback_image": "trio-current.webp"
+    },
+    {
+      "id": "cgom6cr4c4r62bb3chimcb9k6crmcb9o6krm8bb46phm4or275j38cpg6g@google.com",
+      "summary": "Jen & Cooper - Bennett Vineyards",
+      "project": "Jen & Cooper",
+      "title": "Bennett Vineyards",
+      "venue": "",
+      "location": "Bennett Vineyards & Wine Company, 25974 OR-36, Cheshire, OR 97419, USA",
+      "description": "",
+      "start": "2026-09-06T13:00:00-07:00",
+      "end": "2026-09-06T16:00:00-07:00",
+      "all_day": false,
+      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
+      "image": "",
+      "fallback_image": "duo-smittys.webp"
+    },
+    {
+      "id": "c9i3ao9n71i3ibb360qj0b9k6li64bb1c5j3cb9lcdj3ie9icop62c9g6k@google.com",
+      "summary": "Tree House Trio - Oregon Wine Lab",
+      "project": "Tree House Trio",
+      "title": "Oregon Wine Lab",
+      "venue": "",
+      "location": "Oregon Wine LAB, 488 Lincoln St, Eugene, OR 97401, USA",
+      "description": "",
+      "start": "2026-09-26T18:00:00-07:00",
+      "end": "2026-09-26T21:00:00-07:00",
+      "all_day": false,
+      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
+      "image": "",
+      "fallback_image": "trio-current.webp"
+    },
+    {
+      "id": "65h3iopp6spj2bb4cli3gb9k69gm4b9o68pjgb9oclj62o9ncos38ohhc8@google.com",
+      "summary": "Tree House Trio - Bennett Vineyards",
+      "project": "Tree House Trio",
+      "title": "Bennett Vineyards",
+      "venue": "",
+      "location": "Bennett Vineyards & Wine Company, 25974 OR-36, Cheshire, OR 97419, USA",
+      "description": "",
+      "start": "2026-09-27T13:00:00-07:00",
+      "end": "2026-09-27T16:00:00-07:00",
       "all_day": false,
       "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
       "image": "",
