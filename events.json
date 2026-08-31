@@ -1,37 +1,7 @@
 {
-  "generated_at": "2026-08-30T18:37:50.679478-07:00",
+  "generated_at": "2026-08-31T00:37:48.871584-07:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
-    {
-      "id": "2brgpm5cjc01eh3uc36bmuj7u1@google.com",
-      "summary": "Tree House Trio - Spencer Creek Grange",
-      "project": "Tree House Trio",
-      "title": "Spencer Creek Grange",
-      "venue": "",
-      "location": "Crow Grange, 85994 Territorial Hwy, Eugene, OR 97402, USA",
-      "description": "",
-      "start": "2026-08-29T12:00:00-07:00",
-      "end": "2026-08-29T14:00:00-07:00",
-      "all_day": false,
-      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
-      "image": "",
-      "fallback_image": "trio-current.webp"
-    },
-    {
-      "id": "75j3eopic8p3cbb165gj8b9k68r34bb168pj6bb270qjcphh6sq32e1ick@google.com",
-      "summary": "Tree House Trio - Hot August Nights Car Show",
-      "project": "Tree House Trio",
-      "title": "Hot August Nights Car Show",
-      "venue": "",
-      "location": "1919 Bailey Hill Rd, Eugene, OR 97405, USA",
-      "description": "",
-      "start": "2026-08-29T18:00:00-07:00",
-      "end": "2026-08-29T20:00:00-07:00",
-      "all_day": false,
-      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
-      "image": "",
-      "fallback_image": "trio-current.webp"
-    },
     {
       "id": "cdgjip1o6ks3gb9i6cpm2b9k64sj6bb2ckr38b9l65i6ae1p6ssm6p9occ@google.com",
       "summary": "Tree House Trio - Bluebird Hill Cellars",
