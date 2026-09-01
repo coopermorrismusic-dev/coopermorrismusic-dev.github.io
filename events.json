@@ -1,22 +1,7 @@
 {
-  "generated_at": "2026-08-31T22:31:39.799809-07:00",
+  "generated_at": "2026-09-01T03:23:01.460747-07:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
-    {
-      "id": "cdgjip1o6ks3gb9i6cpm2b9k64sj6bb2ckr38b9l65i6ae1p6ssm6p9occ@google.com",
-      "summary": "Tree House Trio - Bluebird Hill Cellars",
-      "project": "Tree House Trio",
-      "title": "Bluebird Hill Cellars",
-      "venue": "",
-      "location": "Bluebird Hill Cellars, 25059 Larson Rd, Monroe, OR 97456, USA",
-      "description": "",
-      "start": "2026-08-30T14:30:00-07:00",
-      "end": "2026-08-30T16:30:00-07:00",
-      "all_day": false,
-      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
-      "image": "",
-      "fallback_image": "trio-current.webp"
-    },
     {
       "id": "cgom6cr4c4r62bb3chimcb9k6crmcb9o6krm8bb46phm4or275j38cpg6g@google.com",
       "summary": "Jen & Cooper - Bennett Vineyards",
