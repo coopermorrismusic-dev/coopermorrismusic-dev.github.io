@@ -1,22 +1,7 @@
 {
-  "generated_at": "2026-10-18T23:58:35.268509-07:00",
+  "generated_at": "2026-10-19T07:31:54.188220-07:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
-    {
-      "id": "60rj4o9o70q6cb9m6phm4b9k6som8b9oc8r68b9p6pijeo9n6gqmcc9n6k@google.com",
-      "summary": "Tree House Trio - North Forty in Roseburg",
-      "project": "Tree House Trio",
-      "title": "North Forty in Roseburg",
-      "venue": "",
-      "location": "North Forty Beer Company, 435 SE Jackson St, Roseburg, OR 97470, USA",
-      "description": "",
-      "start": "2026-10-17T18:00:00-07:00",
-      "end": "2026-10-17T20:00:00-07:00",
-      "all_day": false,
-      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
-      "image": "",
-      "fallback_image": "trio-current.webp"
-    },
     {
       "id": "70sj4d1p6gr68bb1ckom4b9k6thm2b9p64omabb661gjadpi60qm6c3674@google.com",
       "summary": "Tree House Trio - Halloween Crow Grange",
