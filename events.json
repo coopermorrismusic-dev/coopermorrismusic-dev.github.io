@@ -1,22 +1,7 @@
 {
-  "generated_at": "2026-11-01T17:42:58.535793-08:00",
+  "generated_at": "2026-11-02T00:20:12.645076-08:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
-    {
-      "id": "70sj4d1p6gr68bb1ckom4b9k6thm2b9p64omabb661gjadpi60qm6c3674@google.com",
-      "summary": "Tree House Trio - Halloween Crow Grange",
-      "project": "Tree House Trio",
-      "title": "Halloween Crow Grange",
-      "venue": "",
-      "location": "Crow Grange, 85994 Territorial Hwy, Eugene, OR 97402, USA",
-      "description": "",
-      "start": "2026-10-31T18:00:00-07:00",
-      "end": "2026-10-31T22:00:00-07:00",
-      "all_day": false,
-      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
-      "image": "",
-      "fallback_image": "trio-current.webp"
-    },
     {
       "id": "68p6ccj169j34b9mckqm4b9k64pjgb9occpj2b9ockrjgcpj65hj4dhhc8@google.com",
       "summary": "Jen & Cooper - Holiday Market @ Hall stage",
