@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T10:04:05.333889-08:00",
+  "generated_at": "2026-11-11T16:33:10.760856-08:00",
   "calendar_id": "6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5@group.calendar.google.com",
   "events": [
     {
@@ -42,6 +42,21 @@
       "description": "",
       "start": "2026-12-03T19:30:00-08:00",
       "end": "2026-12-03T21:30:00-08:00",
+      "all_day": false,
+      "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
+      "image": "",
+      "fallback_image": "trio-current.webp"
+    },
+    {
+      "id": "75hj4d336sp3ebb371i34b9k70omcb9oclhj0bb674p62oj16lh34e3674@google.com",
+      "summary": "Tree House Trio - Elmira Grange",
+      "project": "Tree House Trio",
+      "title": "Elmira Grange",
+      "venue": "",
+      "location": "Elmira Grange, 88764 Sprague St, Elmira, OR 97437, USA",
+      "description": "",
+      "start": "2026-12-05T17:00:00-08:00",
+      "end": "2026-12-05T20:00:00-08:00",
       "all_day": false,
       "url": "https://calendar.google.com/calendar/embed?src=6275cc80dd5d91174efcd894cb5f3d571762ccdc852eb62972a631c1bb124ee5%40group.calendar.google.com&ctz=America%2FLos_Angeles",
       "image": "",
